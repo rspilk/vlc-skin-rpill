@@ -19,8 +19,18 @@ author's notes, included as Apill-original-notes.txt). In those notes, the
 author thanks "Steve" for the equalizer script and the old-timers of the
 Winamp 3 forum.
 
-The original Winamp 3 skin (Apill.wal) is preserved at the Internet Archive:
-  https://archive.org/details/winampskin_Apill
+History, from the author's archived homepage:
+  Bluple   v.92 by June 2002, a small blue skin for Winamp 3.
+  Apple    v.20 in August 2002: Bluple with gammagroups (color themes) for
+           Winamp 3 RC2. "It no longer has to be blue hence the name change."
+  Apill    v.75 to v.92, August to October 2002: the same skin updated for
+           Winamp 3 final, renamed again to avoid confusion with the
+           computer company.
+  http://web.archive.org/web/2002/http://wam.umd.edu/~bryceb/
+
+Where to find the original Winamp 3 skin (Apill.wal):
+  Winamp Heritage:  https://winampheritage.com/skin/apill/118660
+  Internet Archive: https://archive.org/details/winampskin_Apill
 
 THIS PORT
 ---------

@@ -103,8 +103,8 @@ The skin's text is generated from **Liberation Sans 2.1.5**, which has the same 
 
 **Apill** © 2001–2002 Brian Bryce (drwho9437):
 - **Original credits:** it was published as a Winamp 3 skin with the contact details `brianbryce@bigfoot.com` and `http://wam.umd.edu/~bryceb/`.
-- **History:** the skin was earlier known as "Apple" and "Bluple". In his notes (`source/notes.txt`), the author thanks "Steve" for the equalizer script and the Winamp 3 forum regulars.
-- **Where to find it:** the original skin is preserved at the [Internet Archive](https://archive.org/details/winampskin_Apill).
+- **History:** according to his [archived homepage](http://web.archive.org/web/2002/http://wam.umd.edu/~bryceb/), the skin began as "Bluple" (v.92 by June 2002). It became "Apple" (v.20, August 2002) when he added color themes for Winamp 3 RC2, since "it no longer has to be blue". It became "Apill" (v.75–v.92, August–October 2002) for Winamp 3 final. In his notes (`source/notes.txt`), the author thanks "Steve" for the equalizer script and the Winamp 3 forum regulars.
+- **Where to find it:** the original skin is on [Winamp Heritage](https://winampheritage.com/skin/apill/118660) and preserved at the [Internet Archive](https://archive.org/details/winampskin_Apill).
 - **Ownership:** the artwork in `source/` and in every skin built from it remains his.
 - **Not endorsed:** this port is not affiliated with or endorsed by him. **Brian Bryce:** if you'd like this port credited differently, changed or taken down, please [open an issue](https://github.com/rspilk/vlc-skin-rpill/issues).
 

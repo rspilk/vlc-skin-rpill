@@ -1,0 +1,62 @@
+<elements>
+
+  <bitmap id="component.BaseTexture" file="system/window/background.png" gammagroup="Display Backgrounds" />
+
+  <bitmap id="component.window.top.left" file="system/window/border.png" x="0" y="0" h="22" w="22" gammagroup="Backgrounds"/>
+  <bitmap id="component.window.top" file="system/window/border.png" x="20" y="0" h="22" w="15" gammagroup="Backgrounds"/>
+  <bitmap id="component.window.top.right" file="system/window/border.png" x="33" y="0" h="22" w="22" gammagroup="Backgrounds"/>
+  <bitmap id="component.window.left" file="system/window/border.png" x="0" y="23" h="10" w="22" gammagroup="Backgrounds"/>
+  <bitmap id="component.window.right" file="system/window/border.png" x="33" y="23" h="10" w="22" gammagroup="Backgrounds"/>
+
+<!-- 
+  The bottom of the window is broken up into three levels, top, middle, and bottom. The reason for this
+  is because the same graphics are used to create a window with a status bar and resizer symbol and one 
+  without.
+-->
+  <bitmap id="component.window.bottom.left" file="system/window/border.png" x="0" y="33" h="22" w="22" gammagroup="Backgrounds"/>
+  <bitmap id="component.window.bottom" file="system/window/border.png" x="20" y="33" h="22" w="10" gammagroup="Backgrounds"/>
+  <bitmap id="component.window.bottom.right" file="system/window/border.png" x="33" y="33" h="22" w="22" gammagroup="Backgrounds"/>
+
+
+
+<!--Inner-->
+
+  <bitmap id="component.window.top.left.inner" file="system/window/border-inner.png" x="0" y="0" h="22" w="22" gammagroup="Display Backgrounds"/>
+  <bitmap id="component.window.top.inner" file="system/window/border-inner.png" x="20" y="0" h="22" w="15" gammagroup="Display Backgrounds"/>
+  <bitmap id="component.window.top.right.inner" file="system/window/border-inner.png" x="33" y="0" h="22" w="22" gammagroup="Display Backgrounds"/>
+  <bitmap id="component.window.left.inner" file="system/window/border-inner.png" x="0" y="23" h="10" w="22" gammagroup="Display Backgrounds"/>
+  <bitmap id="component.window.right.inner" file="system/window/border-inner.png" x="33" y="23" h="10" w="22" gammagroup="Display Backgrounds"/>
+
+
+  <bitmap id="component.window.bottom.left.inner" file="system/window/border-inner.png" x="0" y="33" h="22" w="22" gammagroup="Display Backgrounds"/>
+  <bitmap id="component.window.bottom.inner" file="system/window/border-inner.png" x="20" y="33" h="22" w="10" gammagroup="Display Backgrounds"/>
+  <bitmap id="component.window.bottom.right.inner" file="system/window/border-inner.png" x="33" y="33" h="22" w="22" gammagroup="Display Backgrounds"/>
+
+
+
+<!-- Mask -->
+  <bitmap id="component.window.top.left.mask" file="system/window/border-mask.png" x="0" y="0" h="22" w="22"/>
+  <bitmap id="component.window.top.mask" file="system/window/border-mask.png" x="20" y="0" h="22" w="15"/>
+  <bitmap id="component.window.top.right.mask" file="system/window/border-mask.png" x="33" y="0" h="22" w="22"/>
+  <bitmap id="component.window.left.mask" file="system/window/border-mask.png" x="0" y="23" h="10" w="22"/>
+  <bitmap id="component.window.right.mask" file="system/window/border-mask.png" x="33" y="23" h="10" w="22"/>
+
+
+  <bitmap id="component.window.bottom.left.mask" file="system/window/border-mask.png" x="0" y="33" h="22" w="22" gammagroup="Display Backgrounds"/>
+  <bitmap id="component.window.bottom.mask" file="system/window/border-mask.png" x="20" y="33" h="22" w="10"/>
+  <bitmap id="component.window.bottom.right.mask" file="system/window/border-mask.png" x="33" y="33" h="22" w="22"/>
+
+
+
+
+  <bitmap id="128dot" file="system/window/128dot.png" gammagroup="Display Backgrounds"/>
+  <bitmap id="48dot" file="system/window/48dot.png" gammagroup="Display Backgrounds"/>
+
+  
+  <bitmap id="component.window.status.left" file="system/window/window-elements.png" x="94" y="0" h="12" w="12"/>
+  <bitmap id="component.window.status" file="system/window/window-elements.png" x="107" y="0" h="12" w="12"/>
+  <bitmap id="component.window.status.right" file="system/window/window-elements.png" x="120" y="0" h="12" w="12"/>
+
+  <bitmap id="component.window.resizer" file="system/window/window-elements.png" x="93" y="84" h="12" w="12"/>
+ 
+</elements>

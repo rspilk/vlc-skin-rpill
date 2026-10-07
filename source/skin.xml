@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<WinampAbstractionLayer version="0.8">
+
+  <skininfo>
+    <version>0.92</version>
+    <name>Apill</name>
+    <comment>A simple, small, usable skin.</comment>
+    <author gaybag="ok">Brian Bryce (drwho9437)</author>
+    <email>brianbryce@bigfoot.com</email>
+    <homepage>http://wam.umd.edu/~bryceb/</homepage>
+    <screenshot>screenshot.png</screenshot>
+  </skininfo>
+
+
+  <include file="system/system.xml"/>
+  <include file="xml/color-presets.xml"/>
+  <include file="xml/player.xml"/>
+  <include file="xml/pledit.xml"/>
+  <include file="xml/eq.xml"/>
+  <include file="xml/thinger.xml"/>
+  <include file="xml/video.xml"/>
+
+
+<!-- Make sure that you load your scripts.xml file as the very last item in your list-->
+  <include file="xml/scripts.xml"/>
+
+    
+</WinampAbstractionLayer>

@@ -1,0 +1,455 @@
+<groupdef id="wasabi.frame.layout" background="component.basetexture">
+
+   <layer
+     id="hide-the-other-color"
+     x="9" y="9"
+     h="-20" w="-20"
+     relatw="1" relath="1"
+     image="128dot"
+   />
+
+
+   <layer
+     id="window.top.left"
+     x="0" y="0"
+     image="component.window.top.left"
+     resize="topleft"
+   />
+   <layer
+     id="window.top"
+     x="22" y="0"
+     w="-44"
+     relatw="1"
+     image="component.window.top"
+     resize="top"
+   />
+   <layer
+     id="window.top.right"
+     x="-22" y="0"
+     relatx="1"
+     image="component.window.top.right"
+     resize="topright"
+   />
+
+   <layer
+     id="window.left"
+     x="0" y="22"
+     h="-22"
+     relath="1"
+     image="component.window.left"
+     resize="left"
+   />
+   <layer
+     id="window.right"
+     x="-22" y="22"
+     h="-22"
+     relatx="1" relath="1"
+     image="component.window.right"
+     resize="right"
+   />
+
+
+
+<!-- INNER-->
+   <layer
+     id="window.top.left.inner"
+     x="0" y="0"
+     image="component.window.top.left.inner"
+     resize="topleft"
+   />
+   <layer
+     id="window.top.inner"
+     x="22" y="0"
+     w="-44"
+     relatw="1"
+     image="component.window.top.inner"
+     resize="top"
+   />
+   <layer
+     id="window.top.right.inner"
+     x="-22" y="0"
+     relatx="1"
+     image="component.window.top.right.inner"
+     resize="topright"
+   />
+
+   <layer
+     id="window.left.inner"
+     x="0" y="22"
+     h="-22"
+     relath="1"
+     image="component.window.left.inner"
+     resize="left"
+   />
+   <layer
+     id="window.right.inner"
+     x="-22" y="22"
+     h="-22"
+     relatx="1" relath="1"
+     image="component.window.right.inner"
+     resize="right"
+   />
+
+<!-- Mask-->
+
+   <layer
+     id="window.top.left.mask"
+     x="0" y="0"
+     image="component.window.top.left.mask"
+     resize="topleft"
+     sysregion="-2"
+   />
+   <layer
+     id="window.top.mask"
+     x="22" y="0"
+     w="-44"
+     relatw="1"
+     image="component.window.top.mask"
+     resize="top"
+     sysregion="-2"
+   />
+   <layer
+     id="window.top.right.mask"
+     x="-22" y="0"
+     relatx="1"
+     image="component.window.top.right.mask"
+     resize="topright"
+     sysregion="-2"
+   />
+
+   <layer
+     id="window.left.mask"
+     x="0" y="22"
+     h="-22"
+     relath="1"
+     image="component.window.left.mask"
+     resize="left"
+     sysregion="-2"
+   />
+   <layer
+     id="window.right.mask"
+     x="-21" y="22"
+     h="-22"
+     relatx="1" relath="1"
+     image="component.window.right.mask"
+     resize="right"
+     sysregion="-2"
+   />
+
+
+<!-- LINES -->
+
+   <layer
+     id="window.top.line"
+     x="15" y="21"
+     w="-30"
+     relatw="1"
+     image="48dot"
+   />
+   <layer
+     id="window.left.line"
+     x="14" y="21"
+     h="-32"
+     relath="1"
+     image="48dot"
+   />
+   <layer
+     id="window.right.line"
+     x="-15" y="21"
+     h="-32"
+     relatx="1" relath="1"
+     image="48dot"
+   /> 
+
+   <layer id="window.resize.disabler" x="5" y="5" w="-10" h="-10" relatw="1" relath="1"/>
+   
+   <LayoutStatus id="sysmenu.status" bg="0" x="18" y="12" w="9" h="9" includeonly="{system}" />
+   <hideobject target="sysmenu.status"/>
+
+   <button
+      id="CONTROLMENU"
+      action="CONTROLMENU"
+      x="18" y="12"
+      image="wasabi.button.sysmenu"
+      downImage="wasabi.button.sysmenu.pressed"
+      tooltip="Configure"
+      rectrgn="1"
+   />
+
+   <button
+      id="Close"
+      action="CLOSE"
+      x="-25" y="12"
+      relatx="1"
+      image="wasabi.button.close"
+      downImage="wasabi.button.close.pressed"
+      tooltip="Close Window"
+      rectrgn="1"
+   />
+   <group
+     id="wasabi.titlebar"
+     x="30" y="6"
+     w="-60" h="15"
+     relatw="1"
+   />
+     
+ </groupdef>
+
+ <groupdef id="wasabi.standardframe.statusbar">
+
+    <group id="wasabi.frame.layout" x="0" y="0" w="0" relatw="1" h="-19" relath="1"/>
+
+   <layer
+     id="window.bottom.left"
+     x="0" y="-22"
+     relaty="1"
+     image="component.window.bottom.left"
+     resize="bottomleft"
+   />
+
+   <layer
+     id="window.bottom"
+     x="22" y="-22"
+     w="-44"
+     relatw="1" relaty="1"
+     image="component.window.bottom"
+     resize="bottom"
+   />
+
+   <layer
+     id="window.bottom.right"
+     x="-22" y="-22"
+     relatx="1" relaty="1"
+     image="component.window.bottom.right"
+     resize="bottomright"
+   />
+
+<!-- INNER -->
+
+   <layer
+     id="window.bottom.left.inner"
+     x="0" y="-22"
+     relaty="1"
+     image="component.window.bottom.left.inner"
+     resize="bottomleft"
+   />
+
+   <layer
+     id="window.bottom.inner"
+     x="22" y="-22"
+     w="-44"
+     relatw="1" relaty="1"
+     image="component.window.bottom.inner"
+     resize="bottom"
+   />
+
+   <layer
+     id="window.bottom.right.inner"
+     x="-22" y="-22"
+     relatx="1" relaty="1"
+     image="component.window.bottom.right.inner"
+     resize="bottomright"
+   />
+
+
+<!-- MASK -->
+
+   <layer
+     id="window.bottom.left.mask"
+     x="0" y="-22"
+     relaty="1"
+     image="component.window.bottom.left.mask"
+     resize="bottomleft"
+     sysregion="-2"
+   />
+
+   <layer
+     id="window.bottom.mask"
+     x="22" y="-21"
+     w="-44"
+     relatw="1" relaty="1"
+     image="component.window.bottom.mask"
+     resize="bottom"
+     sysregion="-2"
+   />
+
+   <layer
+     id="window.bottom.right.mask"
+     x="-22" y="-22"
+     relatx="1" relaty="1"
+     image="component.window.bottom.right.mask"
+     resize="bottomright"
+     sysregion="-2"
+   />
+
+<!-- LINES -->
+
+   <layer
+     id="window.bottom.line.status"
+     x="15" y="-15"
+     w="-30"
+     relatw="1"
+     relaty="1"
+     image="48dot"
+   />
+   <layer
+     id="window.left.line.status"
+     x="14" y="-30"
+     h="16"
+     relaty="1"
+     image="48dot"
+   />
+   <layer
+     id="window.right.line.status"
+     x="-15" y="-30"
+     h="16"
+     relatx="1"
+     relaty="1"
+     image="48dot"
+   /> 
+
+
+  <LayoutStatus id="standardframe.layoutstatus" x="15" y="-30" relaty="1" w="-30" relatw="1" h="15" exclude="{system}" />
+  <SysCmds id="syscmds" />
+  <script id="standardframe.script" file="system/scripts/standardframe.maki" param="15,22,-30,-52,0,0,1,1" />
+
+</groupdef>
+
+<groupdef id="wasabi.standardframe.nostatusbar">
+
+  <group id="wasabi.frame.layout" x="0" y="0" w="0" h="-5" relatw="1" relath="1"/>
+
+    <layer
+     id="window.bottom.left"
+     x="0" y="-22"
+     relaty="1"
+     image="component.window.bottom.left"
+     resize="bottomleft"
+   />
+
+   <layer
+     id="window.bottom"
+     x="22" y="-22"
+     w="-44"
+     relatw="1" relaty="1"
+     image="component.window.bottom"
+     resize="bottom"
+   />
+
+   <layer
+     id="window.bottom.right"
+     x="-22" y="-22"
+     relatx="1" relaty="1"
+     image="component.window.bottom.right"
+     resize="bottomright"
+   />
+
+<!-- INNER -->
+
+   <layer
+     id="window.bottom.left.inner"
+     x="0" y="-22"
+     relaty="1"
+     image="component.window.bottom.left.inner"
+     resize="bottomleft"
+   />
+
+   <layer
+     id="window.bottom.inner"
+     x="22" y="-22"
+     w="-44"
+     relatw="1" relaty="1"
+     image="component.window.bottom.inner"
+     resize="bottom"
+   />
+
+   <layer
+     id="window.bottom.right.inner"
+     x="-22" y="-22"
+     relatx="1" relaty="1"
+     image="component.window.bottom.right.inner"
+     resize="bottomright"
+   />
+
+
+<!-- MASK -->
+
+   <layer
+     id="window.bottom.left.mask"
+     x="0" y="-22"
+     relaty="1"
+     image="component.window.bottom.left.mask"
+     resize="bottomleft"
+     sysregion="-2"
+   />
+
+   <layer
+     id="window.bottom.mask"
+     x="22" y="-21"
+     w="-44"
+     relatw="1" relaty="1"
+     image="component.window.bottom.mask"
+     resize="bottom"
+     sysregion="-2"
+   />
+
+   <layer
+     id="window.bottom.right.mask"
+     x="-22" y="-22"
+     relatx="1" relaty="1"
+     image="component.window.bottom.right.mask"
+     resize="bottomright"
+     sysregion="-2"
+   />
+
+<!-- LINES -->
+
+   <layer
+     id="window.bottom.line.status"
+     x="15" y="-15"
+     w="-30"
+     relatw="1"
+     relaty="1"
+     image="48dot"
+   />
+   <layer
+     id="window.left.line.status"
+     x="14" y="-30"
+     h="16"
+     relaty="1"
+     image="48dot"
+   />
+   <layer
+     id="window.right.line.status"
+     x="-15" y="-30"
+     h="16"
+     relatx="1"
+     relaty="1"
+     image="48dot"
+   /> 
+
+  <script id="standardframe.script" file="system/scripts/standardframe.maki" param="15,22,-30,-37,0,0,1,1"/>
+
+</groupdef>
+
+<groupdef id="wasabi.standardframe.modal" inherit_group="wasabi.standardframe.nostatusbar">
+  <!-- <group 
+    id="wasabi.panel"
+    x="5" y="15"
+    w="-10" h="-20"
+    relatw="1" relath="1"
+  /> -->
+  <hideobject target="sysmenu"/>
+  <sendparams target="titlebar" x="3" w="-20" relatw="1" />
+  <sendparams target="window.top.left;window.top;window.top.right;window.left;window.right;window.bottom.left.top;window.bottom.left;window.bottom.left.bottom;window.bottom.top;window.bottom;window.bottom.bottom;window.bottom.right.top;window.bottom.right;window.bottom.right.bottom" resize="0" />
+</groupdef>
+
+<groupdef id="wasabi.standardframe.static" inherit_group="wasabi.standardframe.nostatusbar">
+  <!-- <group 
+    id="wasabi.panel"
+    x="5" y="15"
+    w="-10" h="-20"
+    relatw="1" relath="1"
+  /> -->
+  <sendparams target="window.top.left;window.top;window.top.right;window.left;window.right;window.bottom.left.top;window.bottom.left;window.bottom.left.bottom;window.bottom.top;window.bottom;window.bottom.bottom;window.bottom.right.top;window.bottom.right;window.bottom.right.bottom" resize="0" />
+</groupdef>

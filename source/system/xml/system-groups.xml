@@ -1,0 +1,319 @@
+<!-- This group defines the layout of a toolbar like panel -->
+
+<groupdef id="wasabi.buttonbar.stack" default_h="18">
+  <grid
+    id=""
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+    topleft="wasabi.label.top.left"
+    top="wasabi.label.top"
+    topright="wasabi.label.top.right"
+    left="wasabi.label.left"
+    middle="wasabi.label.middle"
+    right="wasabi.label.right"
+    bottomleft="wasabi.label.bottom.left"
+    bottom="wasabi.label.bottom"
+    bottomright="wasabi.label.bottom.right"
+  />  
+  <text
+    id="buttonbar.text"
+    x="5" y="0"
+    w="-10" h="0"
+    relatw="1" relath="1"
+    default="Error"
+    font="Arial" fontsize="15"
+    color="white" shadowcolor="black" shadowx="1" shadowy="1"
+  />
+  <layer
+    id="buttonbar.arrow"
+    x="-15" y="8" 
+    valign="center"
+    relatx="1"
+    image="wasabi.button.label.arrow.down"
+  />
+  <button id="mousetrap" x="0" y="0" w="0" h="0" relatw="1" relath="1" />
+</groupdef>
+
+<groupdef id="wasabi.titlebar.streak">
+
+
+
+</groupdef>
+
+<groupdef id="wasabi.titlebar" >
+
+  <text
+   id="window.titlebar.title"
+   x="25"
+   y="0"
+   w="-50"
+   relatw="1"
+   h="14"
+   align="center"
+   default=":componentname"
+   font="arial"
+   bold="1"
+   fontsize="14"
+   color="50,63,110"
+   inactiveAlpha="128"
+  />
+
+  <layer id="mousetrap" x="0" y="2" w="0" h="-2" relatw="1" relath="1" move="1"/>
+
+</groupdef>
+
+<groupdef id="wasabi.panel">
+  <grid
+    id="panel.grid"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+    topleft="wasabi.panel.top.left"
+    top="wasabi.panel.top"
+    topright="wasabi.panel.top.right"
+    left="wasabi.panel.left"
+    right="wasabi.panel.right"
+    bottomleft="wasabi.panel.bottom.left"
+    bottom="wasabi.panel.bottom"
+    bottomright="wasabi.panel.bottom.right"
+  />   
+</groupdef>
+
+<!-- This group defines the layout of an edit box -->
+
+<groupdef id="wasabi.objectframe.group">
+  <grid
+    id="objectframe.grid"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+    topleft="wasabi.objectframe.top.left"
+    top="wasabi.objectframe.top"
+    topright="wasabi.objectframe.top.right"
+    left="wasabi.objectframe.left"
+    middle="wasabi.objectframe.center"
+    right="wasabi.objectframe.right"
+    bottomleft="wasabi.objectframe.bottom.left"
+    bottom="wasabi.objectframe.bottom"
+    bottomright="wasabi.objectframe.bottom.right"
+  />
+</groupdef>
+
+<groupdef id="wasabi.edit.disabled" inherit_group="wasabi.objectframe.group" hideobject="wasabi.objectframe.center">
+  <text
+    id="wasabi.edit.box"
+    x="1" y="1"
+    w="-2" h="-2"
+    relatw="1" relath="1"
+  />
+</groupdef>
+
+<groupdef id="wasabi.edit" inherit_group="wasabi.objectframe.group" xuitag="Wasabi:EditBox" embed_xui="wasabi.edit.box" h="20">
+  <edit
+    id="wasabi.edit.box"
+    x="1" y="1"
+    w="-2" h="-2"
+    relatw="1" relath="1"
+  />
+</groupdef>
+
+<groupdef id="wasabi.frame.divider">
+  <grid
+    id="wasabi.frame.grid"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+    topleft="wasabi.frame.divider.top.left"
+    top="wasabi.frame.divider.top"
+    topright="wasabi.frame.divider.top.right"
+    left="wasabi.frame.divider.left"
+    middle="wasabi.frame.divider.center"
+    right="wasabi.frame.divider.right"
+    bottomleft="wasabi.frame.divider.bottom.left"
+    bottom="wasabi.frame.divider.bottom"
+    bottomright="wasabi.frame.divider.bottom.right"
+  />
+</groupdef>
+
+<groupdef id="wasabi.window.embedded">
+  <grid
+    id="window.embedded.grid"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+    topleft="wasabi.window.top.left"
+    top="wasabi.window.top"
+    topright="wasabi.window.top.right"
+    left="wasabi.window.left"
+    middle="wasabi.window.center"
+    right="wasabi.window.right"
+    bottomleft="wasabi.window.bottom.left"
+    bottom="wasabi.window.bottom"
+    bottomright="wasabi.window.bottom.right"
+  />
+</groupdef>
+
+<groupdef id="wasabi.window">
+   <layer
+     id="window.center.stretch"
+     x="0" y="0"
+     w="0" h="0"
+     relatw="1" relath="1"
+     image="wasabi.window.center"
+   />
+</groupdef>
+
+<!-- This defines the layout of a regular Wasabi button -->
+
+<groupdef id="wasabi.button.normal">
+  <grid
+    id="button.normal.grid"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+    topleft="wasabi.button.top.left"
+    top="wasabi.button.top"
+    topright="wasabi.button.top.right"
+    left="wasabi.button.left"
+    middle="wasabi.button.center"
+    right="wasabi.button.right"
+    bottomleft="wasabi.button.bottom.left"
+    bottom="wasabi.button.bottom"
+    bottomright="wasabi.button.bottom.right"
+  />
+  <text
+     id="button.text"
+     x="6" y="4"
+     w="-13" h="11"
+     relatw="1"
+     default="Button"
+     font="wasabi.font.button.normal"
+  />
+</groupdef>
+
+<groupdef id="wasabi.button.pressed">
+  <grid
+    id="button.pressed.grid"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+    topleft="wasabi.button.pressed.top.left"
+    top="wasabi.button.pressed.top"
+    topright="wasabi.button.pressed.top.right"
+    left="wasabi.button.pressed.left"
+    middle="wasabi.button.pressed.center"
+    right="wasabi.button.pressed.right"
+    bottomleft="wasabi.button.pressed.bottom.left"
+    bottom="wasabi.button.pressed.bottom"
+    bottomright="wasabi.button.pressed.bottom.right"
+  />
+  <text
+     id="button.text"
+     x="7" y="5"
+     w="-13" h="11"
+     relatw="1"
+     default="Button"
+     font="wasabi.font.button.normal"
+  />
+</groupdef>
+
+<groupdef id="wasabi.button">
+
+  <group id="wasabi.button.normal"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+  />
+
+<!--  
+  <group id="wasabi.button.pressed"
+    x="0" y="0"
+    w="0" h="0"
+    relatw="1" relath="1"
+  />
+-->
+  
+</groupdef>
+
+<!-- This defines the layout of a standard window statusbar -->
+
+<groupdef id="wasabi.statusbar" default_h="12">
+
+  <group id="wasabi.objectframe.group" x="0" y="0" w="0" h="0" relatw="1" relath="1" />
+
+  <!-- nonmodal progress bar -->
+  <rect id="wasabi.statusbar.progress.outline" x="-104" relatx="1" y="3" w="100" h="8" filled="0" color="84,104,176" visible="0" />
+  <rect id="wasabi.statusbar.progress.inside" x="-104" relatx="1" y="3" w="1" h="8" filled="1" color="84,104,176" visible="0" />
+
+  <!-- text line -->
+  <text id="wasabi.statusbar.text" x="6" y="1" w="-12" relatw="1" h="-1" relath="1" font="studio.component.statusbar" />
+
+</groupdef>
+
+<groupdef id="wasabi.slider.horizontal">
+
+    <layer
+      id="slider.background"
+      x="0" y="1"
+      image="wasabi.slider.horizontal.left"
+    />
+    <layer
+      id="slider.background"
+      x="8" y="1"
+      w="-16"
+      relatw="1"
+      image="wasabi.slider.horizontal.middle"
+    />
+    <layer
+      id="slider.background"
+      x="-8" y="1"
+      relatx="1"
+      image="wasabi.slider.horizontal.right"
+    />
+
+    <slider
+      id="slider.button"
+      action="slider.guid"
+      x="0" y="0" 
+      w="0" h="13"
+      relatw="1"
+      thumb="wasabi.slider.horizontal.button"
+      downThumb="wasabi.slider.horizontal.button.pressed"
+    />
+
+</groupdef>
+
+<groupdef id="wasabi.slider.vertical" default_h="100">
+
+    <layer
+      id="slider.background"
+      x="3" y="0"
+      image="wasabi.slider.vertical.top"
+    />
+    <layer
+      id="slider.background"
+      x="3" y="8"
+      h="-8"
+      relath="1"
+      image="wasabi.slider.vertical.middle"
+    />
+    <layer
+      id="slider.background"
+      x="-3" y="-8"
+      relatx="1" relaty="1"
+      image="wasabi.slider.vertical.bottom"
+    />
+
+    <slider
+      id="slider.button"
+      action="slider.guid"
+      x="0" y="0" 
+      w="13" h="0"
+      relath="1"
+      thumb="wasabi.slider.vertical.button"
+      downThumb="wasabi.slider.vertical.button.pressed"
+    />
+
+</groupdef>
+

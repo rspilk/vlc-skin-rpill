@@ -1,0 +1,59 @@
+<elements>
+   <bitmap id="previous.video" file="video/video-elements.png" x="0" y="0" h="12" w="12" gammagroup="Buttons"/>
+   <bitmap id="previous.pressed.video" file="video/video-elements.png" x="0" y="12" h="12" w="12" gammagroup="Buttons"/>
+
+   <bitmap id="play.video" file="video/video-elements.png" x="12" y="0" h="12" w="12" gammagroup="Buttons"/>
+   <bitmap id="play.pressed.video" file="video/video-elements.png" x="12" y="12" h="12" w="12" gammagroup="Buttons"/>
+
+   <bitmap id="pause.video" file="video/video-elements.png" x="24" y="0" h="12" w="12" gammagroup="Buttons"/>
+   <bitmap id="pause.pressed.video" file="video/video-elements.png" x="24" y="12" h="12" w="12" gammagroup="Buttons"/>
+
+   <bitmap id="stop.video" file="video/video-elements.png" x="36" y="0" h="12" w="12" gammagroup="Buttons"/>
+   <bitmap id="stop.pressed.video" file="video/video-elements.png" x="36" y="12" h="12" w="12" gammagroup="Buttons"/>
+
+   <bitmap id="next.video" file="video/video-elements.png" x="48" y="0" h="12" w="12" gammagroup="Buttons"/>
+   <bitmap id="next.pressed.video" file="video/video-elements.png" x="48" y="12" h="12" w="12" gammagroup="Buttons"/>
+   
+   <bitmap id="eject.video" file="video/video-elements.png" x="60" y="0" h="12" w="12" gammagroup="Buttons"/>
+   <bitmap id="eject.pressed.video" file="video/video-elements.png" x="60" y="12" h="12" w="12" gammagroup="Buttons"/>
+
+</elements>
+
+
+<groupdef id="video.visualization">
+  <group id="wasabi.window.embedded"
+    x="0"  y="0"
+    w="0" h="0"      
+    relatw="1" relath="1"
+  />
+  <vis
+    id="vis"
+    x="2" y="2"
+    w="-4" h="-4"
+    relatw="1" relath="1"
+    mode="2"
+    colorband1="53,64,107"
+    colorband2="53,64,107"
+    colorband3="53,64,107"
+    colorband4="53,64,107"
+    colorband5="53,64,107"
+    colorband6="53,64,107"
+    colorband7="53,64,107"
+    colorband8="53,64,107"
+    colorband9="53,64,107"
+    colorband10="53,64,107"
+    colorband11="53,64,107"
+    colorband12="53,64,107"
+    colorband13="53,64,107"
+    colorband14="53,64,107"
+    colorband15="53,64,107"
+    colorband16="53,64,107"
+    colorbandpeak="26,32,54"
+    colorosc1="53,64,107"
+    colorosc2="53,64,107"
+    colorosc3="53,64,107"
+    colorosc4="53,64,107"
+    colorosc5="53,64,107"
+
+  />
+</groupdef>

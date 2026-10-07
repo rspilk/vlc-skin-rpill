@@ -1,0 +1,40 @@
+Apill copyright 2001-2002 Brian Bryce
+
+The apill project was previously known as Apple and Bluple. The original name change was (to Apple) was made when Bluple's graphics where redone into layers to facilitate the use of gamma groups. The second name change was made to avoid assocation with the computer company (it seemed to result in alot of dumb comments). Anyway, the apill project started after I finished the now defunked TGA (tiny gray amp). The main purpose was just to create a small skin I could use docked at the top of the screen. I made the windowshade mode for those who really need something with a small footprint. Everything is on both layouts that is found in the default skin (in fact the text is the same size as in the default, yet people claim it is not readable (perhaps for contrast reasons, although they only complain on size), with the exception of the bitrate and sample rate info. I left this out for space reasons as the info isn't particularly relevant IMHO as a song either is of acceptable sound quality or not. Anyway I would like to thank all the old timers in the WA3 forum as they all probably answer some question I had. I also would like to thank Steve specifically for the use of his EQ script.
+
+As for the future I would like to figure a way to change all the colors (color ids too) so that the color themes make for sense (but I don't think it is possable at the moment), but other than that I don't have any big plans for Apill. Well I hope you like apill. Thanks and enjoy.
+
+
+Version info:
+.92
+Added menu opacity menu (its linked to the bb in the eq (looks like an 8 with a line though it)
+Changed player function toggle inactive state buttons to make modes more clear
+Changed Video buttons (made them bigger)
+Removed script sources (email me if you want need to see them for some reason)
+
+.91
+fixed outlines on buttons when using opacity
+
+.9
+never really exsisted
+
+.87
+fixed gammagroup bug
+fixed repeat button (active/inactive colors where backwards)
+
+.86
+clean up and more gammagroups
+
+.85
+combined images to make skin more confussing but smaller
+more gammagroups
+
+.82
+changed named to Apill cleaned up stuff
+fixed checkboxes
+
+.8
+various minor bugs
+
+.75
+fixed the eq script for final

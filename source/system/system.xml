@@ -1,0 +1,13 @@
+<include file="xml/system-colors.xml"/>
+<include file="xml/system-groups.xml"/>
+<include file="xml/system-elements.xml"/>
+<include file="xml/system-config.xml"/>
+
+<include file="xml/window-frame.xml"/>
+
+<include file="xml/components.xml"/>
+
+<include file="xml/checkbox.xml"/>
+<include file="xml/library-elements.xml"/>
+
+

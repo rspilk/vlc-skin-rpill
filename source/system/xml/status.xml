@@ -1,0 +1,5 @@
+<groupdef id="studio.statusbar.group" default_h="24">
+  <layer id="studio.statusbar.left" x="0" y="0" w="12" h="0" relath="1" />
+  <layer id="studio.statusbar.center" x="12" y="0" w="-24" relatw="1" h="0" relath="1" />
+  <layer id="studio.statusbar.right" x="-12" relatx="1" y="0" w="12" h="0" relath="1" />
+</groupdef>

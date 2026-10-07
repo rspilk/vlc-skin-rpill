@@ -1,0 +1,79 @@
+<!-- 
+
+  system-colors.xml
+
+
+  this file contains all the static color definitions for Wasabi. An objects that does not rely on a group will use 
+  one of these elements to decide what color to use.
+
+-->
+
+
+<elements>
+
+   <!-- Generic Trees -->
+   <color id="studio.tree.text" value="50,63,110"/> <!-- Item text color -->
+   <color id="studio.tree.selected" value="84,104,176"/> <!-- Select item text background color -->
+   <color id="studio.tree.hilited" value="139,152,201"/> <!-- Hilited item text background color -->
+   <color id="studio.tree.hiliteddrop" value="0,64,128"/> <!-- Drop marker color -->
+
+   <!-- Generic Lists -->
+   <color id="studio.list.text" value="50,63,110"/> <!-- List item text color -->
+   <color id="studio.list.item.selected" value="84,104,176"/> <!-- Selected item text background color -->
+   <color id="studio.list.item.focused" value="139,152,201"/> <!-- Focused item text background color -->
+   <color id="studio.list.column.background" value="77,95,163"/> <!-- Columns background color -->
+   <color id="studio.list.column.text" value="32,40,68"/> <!-- Columns text color -->
+   <color id="studio.list.item.selected.fg" value="50,63,110"/><!-- Selected item text foreground color -->
+   
+   <!-- Item Lists, Lists with playable items -->
+   <color id="common.itemlist.outline.current" value="77,95,163"/> <!-- Currently playing outline color -->
+   <color id="common.itemlist.outline.focus" value="109,120,189"/> <!-- Focused item dashed outline color -->
+   <color id="common.itemlist.selborder" value="50,63,110"/>
+
+   <!-- Message box -->
+   <color id="studio.msgBox.background" value="109,120,189"/> <!-- Messagebox background color -->
+   <color id="studio.textBar.text" value="125,140,195"/> <!-- Text object & message box text color -->
+   <color id="studio.textBar.background" value="32,40,68"/> <!-- Text object & message box text background color -->
+
+   <!-- Buttons -->
+   <color id="studio.button.text" value="50,63,110"/> <!-- Buttons text color -->
+   <color id="studio.button.hiliteText" value="32,40,68"/> <!-- Buttons hilite text color, used by tab windows-->
+   <color id="studio.button.dimmedText" value="32,40,68"/> <!-- Buttons dimmed text color, when disabled -->
+
+   <!-- Popup menus -->
+   <color id="studio.popup.text" value="32,40,68"/> <!-- Menu items text color -->
+   <color id="studio.popup.hiliteText" value="50,63,110"/> <!-- Hilited item text color -->
+   <color id="studio.popup.dimmedText" value="19,24,41"/> <!-- Disabled item text color -->
+
+   <!-- Components -->
+   <color id="studio.component.title.foreground" value="50,63,110"/> <!-- Old title bar text color when using TTF -->
+   <color id="studio.component.title.border" value="32,40,68"/> <!-- Old title bar text outline when using TTF -->
+
+   <!-- labeled windows -->
+   <color id="common.labelwnd.foreground" value="125,140,195"/> <!-- Text foreground color -->
+   <color id="common.labelwnd.background" value="32,40,68"/> <!-- Text drop shadow color -->
+
+   <!-- edit wnds -->
+   <color id="wasabi.edit.selection" value="50,63,110" gammagroup="Backgrounds"/> <!-- Selected text -->
+   <color id="wasabi.edit.text" value="32,40,68" gammagroup="Text"/> <!--Text -->
+   <color id="wasabi.edit.background" value="77,95,163" gammagroup="Backgrounds"/> <!--Text background -->
+
+
+
+
+   <!-- playlist editor -->
+   <color id="pledit.text" value="50,63,110"/>	<!-- editor item color -->
+   <color id="pledit.text.readonly" value="50,63,110"/>	<!-- text color in editor -->
+   <color id="pledit.text.current" value="32,40,68"/> <!-- current playback file foreground -->
+   <color id="pledit.text.disabled" value="128,128,128" /> <!-- disabled entries -->
+
+   <color id="pledit.currentoutline" value="77,95,163"/> <!-- current playback file outline -->
+   <color id="pledit.dir.plitem" value="50,63,110" /> <!-- playlist directory item foreground -->
+   <color id="pledit.dir.plitem.currect" value="32,40,68" /> <!-- playlist directory item current rectangle marker -->
+
+
+   <!-- Media Library Results List -->
+   <color id="library.list.results.text" value="50,63,110"/> <!-- list item text color -->
+
+
+</elements>

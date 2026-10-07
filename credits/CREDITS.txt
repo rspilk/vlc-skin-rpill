@@ -1,0 +1,46 @@
+Apill for VLC
+=============
+
+ORIGINAL SKIN
+-------------
+Apill, a skin for Winamp 3.
+Copyright (c) 2001-2002 Brian Bryce (drwho9437). All artwork, layout and
+color themes in this VLC skin are his work.
+
+As credited in the original skin (skin.xml, version 0.92):
+  Name:     Apill
+  Comment:  "A simple, small, usable skin."
+  Author:   Brian Bryce (drwho9437)
+  Email:    brianbryce@bigfoot.com
+  Homepage: http://wam.umd.edu/~bryceb/
+
+The original skin was previously known as "Apple" and "Bluple" (see the
+author's notes, included as Apill-original-notes.txt). In those notes, the
+author thanks "Steve" for the equalizer script and the old-timers of the
+Winamp 3 forum.
+
+The original Winamp 3 skin (Apill.wal) is preserved at the Internet Archive:
+  https://archive.org/details/winampskin_Apill
+
+THIS PORT
+---------
+This is an unofficial port of Apill to VLC's skin engine (skins2). The
+artwork is Brian Bryce's, recolored with the skin's own color presets and
+rearranged for VLC. Nothing here is endorsed by the original author.
+Brian Bryce: if you would like this port credited differently, changed or
+taken down, please open an issue on the project page below.
+
+VLC port by rspilk: https://github.com/rspilk/vlc-skin-rpill
+The port's own code (build scripts and theme template) is MIT-licensed. That
+license does not cover Brian Bryce's artwork or the fonts.
+
+FONTS
+-----
+The text is drawn with pixel fonts (apill9.ttf, apill11.ttf) generated from
+Liberation Sans 2.1.5. They are Modified Versions of Liberation Sans and are
+licensed under the SIL Open Font License 1.1 (see OFL.txt).
+  Liberation Sans: Copyright (c) 2012 Red Hat, Inc., with Reserved Font
+  Name Liberation. Digitized data copyright (c) 2010 Google Corporation,
+  with Reserved Font Arimo, Tinos and Cousine.
+
+The original Winamp skin used Microsoft Arial, which is not included here.

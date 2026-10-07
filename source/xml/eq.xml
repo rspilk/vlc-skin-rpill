@@ -1,0 +1,9 @@
+<!-- Player:Standard mode -->  
+
+  <include file="eq-elements.xml"/>
+  
+  <container id="EQ" name="Equalizer" default_visible="0" default_x="0" default_y="92">
+
+    <include file="eq-normal.xml"/>
+
+  </container>

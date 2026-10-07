@@ -1,0 +1,181 @@
+
+ <!-- Gamma sets -->
+ <gammaset id="Default">
+   <gammagroup id="Backgrounds" value="0,0,0"/> <!-- edges-->
+   <gammagroup id="Display Backgrounds" value="-550,0,1980"/>
+   <gammagroup id="Buttons" value="-875,0,3000"/>
+   <gammagroup id="Component Buttons" value="-550,0,1980"/>
+   <gammagroup id="Thinger icons" value="600,800,2800"/>
+   <gammagroup id="Slider Backgrounds" value="-425,-50,1400"/>
+   <gammagroup id="Sliders" value="-875,0,3000"/>
+   <gammagroup id="Big Sliders" value="-550,0,1980"/>
+   <gammagroup id="Big Slider Backgrounds" value="-550,0,1980"/>
+
+   <gammagroup id="Fonts" value="0,0,0"/>
+   <gammagroup id="Titlebar Font" value="0,0,0"/>
+   <gammagroup id="Button Fonts" value="-550,0,1980" boost="1"/>
+   <gammagroup id="Display Fonts" value="-550,0,1980" boost="1"/>
+   <gammagroup id="Tree Color" value="-550,0,1980"/>
+
+   <gammagroup id="Menus" value="0,0,0"/>
+   <gammagroup id="Menu Fill" value="-550,0,1980"/>
+   <gammagroup id="Menu Selection" value="-425,-50,1400"/>    
+   <gammagroup id="Menu Widgets" value="-550,0,1980"/>
+
+
+   <gammagroup id="Scrollbar Backgrounds" value="-550,0,1980"/>
+   <gammagroup id="Scrollbar Buttons" value="-550,0,1980"/>
+
+   <gammagroup id="Text" value="0,0,0"/>
+</gammaset>
+
+<gammaset id="More Contrast">
+
+   <gammagroup id="Backgrounds" value="0,0,0"/> <!-- edges-->
+   <gammagroup id="Display Backgrounds" value="0,500,2500"/>
+   <gammagroup id="Buttons" value="-875,0,3000"/>
+   <gammagroup id="Component Buttons" value="0,500,2500"/>
+   <gammagroup id="Thinger icons" value="600,800,2800"/>
+   <gammagroup id="Slider Backgrounds" value="75,450,1850"/>
+   <gammagroup id="Sliders" value="-875,0,3000"/>
+   <gammagroup id="Big Sliders" value="0,500,2500"/>
+   <gammagroup id="Big Slider Backgrounds" value="0,500,2500"/>
+
+   <gammagroup id="Menus" value="0,0,0"/>
+   <gammagroup id="Menu Fill" value="0,500,2500"/>
+   <gammagroup id="Menu Selection" value="75,450,1850"/>    
+   <gammagroup id="Menu Widgets" value="0,500,2500"/>
+
+   <gammagroup id="Scrollbar Backgrounds" value="0,500,2500"/>
+   <gammagroup id="Scrollbar Buttons" value="0,500,2500"/>
+
+
+
+</gammaset>
+
+
+
+<gammaset id="Atmoteal">
+
+   <gammagroup id="Backgrounds" value="0,0,0"/> <!-- edges-->
+   <gammagroup id="Display Backgrounds" value="-1152,-256,512"/>
+   <gammagroup id="Buttons" value="-1152,-256,512"/>
+   <gammagroup id="Component Buttons" value="-1152,-256,512"/>
+   <gammagroup id="Thinger icons" value="0,700,1600"/>
+   <gammagroup id="Slider Backgrounds" value="-1152,-256,512"/>
+   <gammagroup id="Sliders" value="-1152,-256,512"/>
+   <gammagroup id="Big Sliders" value="-1152,-256,512"/>
+   <gammagroup id="Big Slider Backgrounds" value="-1152,-256,512"/>
+
+
+   <gammagroup id="Menus" value="0,0,0"/>
+   <gammagroup id="Menu Fill" value="-1152,-256,512"/>
+   <gammagroup id="Menu Widgets" value="-1152,-256,512"/>
+   <gammagroup id="Menu Selection" value="-800,-200,300"/> 
+
+
+   <gammagroup id="Scrollbar Backgrounds" value="-1152,-256,512"/>
+   <gammagroup id="Scrollbar Buttons" value="-1152,-256,512"/>
+
+
+
+</gammaset>
+
+
+<gammaset id="Graple">
+
+   <gammagroup id="Backgrounds" value="0,0,0"/> <!-- edges-->
+   <gammagroup id="Display Backgrounds" value="1100,1000,-100"/>
+   <gammagroup id="Buttons" value="1100,1000,-100"/>
+   <gammagroup id="Component Buttons" value="1100,1000,-100"/>
+   <gammagroup id="Thinger icons" value="1200,1200,0"/>
+   <gammagroup id="Slider Backgrounds" value="1100,1000,-100"/>
+   <gammagroup id="Sliders" value="1500,1200,-150"/>
+   <gammagroup id="Big Sliders" value="1100,1000,-100"/>
+   <gammagroup id="Big Slider Backgrounds" value="1100,1000,-100"/>
+
+
+   <gammagroup id="Menus" value="0,0,0"/>
+   <gammagroup id="Menu Fill" value="1100,1000,-100"/>
+   <gammagroup id="Menu Widgets" value="1100,1000,-100"/>
+   <gammagroup id="Menu Selection" value="1100,1000,-100"/>
+
+
+   <gammagroup id="Scrollbar Backgrounds" value="1100,1000,-100"/>
+   <gammagroup id="Scrollbar Buttons" value="1100,1000,-100"/>
+
+
+</gammaset>
+
+<gammaset id="PEI Sand">
+
+   <gammagroup id="Backgrounds" value="0,0,0"/> <!-- edges-->
+   <gammagroup id="Display Backgrounds" value="1344,-704,-2496"/> 
+   <gammagroup id="Buttons" value="1344,-704,-2496"/> 
+   <gammagroup id="Component Buttons" value="1344,-704,-2496"/> 
+   <gammagroup id="Thinger icons" value="2000,-300,-1500"/> 
+   <gammagroup id="Slider Backgrounds" value="1344,-704,-2496"/> 
+   <gammagroup id="Sliders" value="1344,-704,-2496"/>
+   <gammagroup id="Big Sliders" value="1344,-704,-2496"/> 
+   <gammagroup id="Big Slider Backgrounds" value="1344,-704,-2496"/> 
+
+
+   <gammagroup id="Menus" value="0,0,0"/>
+   <gammagroup id="Menu Fill" value="1344,-704,-2496"/> 
+   <gammagroup id="Menu Widgets" value="1344,-704,-2496"/> 
+   <gammagroup id="Menu Selection" value="1344,-704,-2496"/> 
+
+
+   <gammagroup id="Scrollbar Backgrounds" value="1344,-704,-2496"/> 
+   <gammagroup id="Scrollbar Buttons" value="1344,-704,-2496"/> 
+
+
+</gammaset>
+
+
+<gammaset id="Ripple">
+
+   <gammagroup id="Backgrounds" value="0,0,0"/> <!-- edges-->
+   <gammagroup id="Display Backgrounds" value="4064,-2176,-2176"/> 
+   <gammagroup id="Buttons" value="4064,-2176,-2176"/> 
+   <gammagroup id="Component Buttons" value="4064,-2176,-2176"/> 
+   <gammagroup id="Thinger icons" value="4064,-1176,-1176"/> 
+   <gammagroup id="Slider Backgrounds" value="4064,-1176,-1176"/> 
+   <gammagroup id="Sliders" value="4064,-2176,-2176"/> 
+   <gammagroup id="Big Sliders" value="4064,-2176,-2176"/> 
+   <gammagroup id="Big Slider Backgrounds" value="4064,-1176,-1176"/> 
+
+
+   <gammagroup id="Menus" value="0,0,0"/>
+   <gammagroup id="Menu Fill" value="4064,-2176,-2176"/> 
+   <gammagroup id="Menu Widgets" value="4064,-2176,-2176"/> 
+   <gammagroup id="Menu Selection" value="4064,-2176,-2176"/> 
+
+
+   <gammagroup id="Scrollbar Backgrounds" value="4064,-2176,-2176"/> 
+   <gammagroup id="Scrollbar Buttons" value="4064,-2176,-2176"/> 
+
+
+</gammaset>
+
+
+<gammaset id="Yelp">
+   <gammagroup id="Backgrounds" value="0,0,0"/>
+   <gammagroup id="Display Backgrounds" value="2304,2304,-4096"/> 
+   <gammagroup id="Buttons" value="2304,2304,-4096"/> 
+   <gammagroup id="Component Buttons" value="2304,2304,-4096"/> 
+   <gammagroup id="Thinger icons" value="2800,2800,-2000"/> 
+   <gammagroup id="Slider Backgrounds" value="2304,2304,-4096"/> 
+
+   <gammagroup id="Sliders" value="2304,2304,-4096"/>
+
+   <gammagroup id="Menus" value="0,0,0"/>
+   <gammagroup id="Menu Fill" value="2304,2304,-4096"/> 
+   <gammagroup id="Menu Widgets" value="2304,2304,-4096"/> 
+   <gammagroup id="Menu Selection" value="2304,2304,-4096"/>
+
+
+   <gammagroup id="Scrollbar Backgrounds" value="2304,2304,-4096"/> 
+   <gammagroup id="Scrollbar Buttons" value="2304,2304,-4096"/>
+</gammaset>
+<include file="@COLORTHEMESPATH@*.xml" />

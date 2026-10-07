@@ -1,0 +1,266 @@
+<!-- player-normal.xml creates the layout of the Winamp Player Window. -->  
+
+
+<layout id="normal" background="player.bg" alphabackground="player.bg.alpha" droptarget="pldr">
+<layer id="lcd" image="player.lcd" x="4" y="4"/>
+
+<layer id="volume" image="player.volume-mold" move="0" sysregion="1"/>
+<layer id="volumefull" image="player.volume" move="0" ghost="1"/>
+
+<button 
+  id="Previous"
+  action="PREV" 
+  x="21" y="30" 
+  image="previous" 
+  downImage="previous.pressed" 
+  tooltip="Previous"
+  rectrgn="1"
+/>
+<button
+  id="Play"
+  action="PLAY"
+  x="30" y="30"
+  image="play"
+  downImage="play.pressed"
+  tooltip="Play"
+  rectrgn="1"
+/>
+<button
+  id="Pause"
+  action="PAUSE"
+  x="39" y="30"
+  image="pause"
+  downImage="pause.pressed"
+  tooltip="Pause"
+  rectrgn="1"
+/>
+<button
+  id="Stop"
+  action="STOP"
+  x="48" y="30"
+  image="stop"
+  downImage="stop.pressed"
+  tooltip="Stop"
+  rectrgn="1"
+/>
+<button
+  id="Next"
+  action="NEXT"
+  x="57" y="30"
+  image="next"
+  downImage="next.pressed"
+  tooltip="Next"
+  rectrgn="1"
+/>
+<button
+  id="Eject"
+  action="EJECT"
+  x="71" y="30"
+  image="eject"
+  downImage="eject.pressed"
+  tooltip="Open File"
+  rectrgn="1"
+/>
+
+
+<togglebutton
+  id="Crossfade"
+  x="86" y="30"
+  image="crossfade"
+  downImage="crossfade.enabled"
+  activeImage="crossfade.enabled"
+  tooltip="Crossfade Tracks"
+  rectrgn="1"
+/>
+<togglebutton
+  id="Shuffle"
+  x="112" y="30"
+  image="shuffle"
+  downImage="shuffle.enabled"
+  activeImage="shuffle.enabled"
+  tooltip="Shuffle Playlist"
+  rectrgn="1"
+/>
+<togglebutton
+  id="Repeat"
+  x="99" y="30"
+  image="repeat"
+  downImage="repeat.enabled"
+  activeImage="repeat.enabled"
+  tooltip="Repeat Playlist"
+  rectrgn="1"
+/>
+
+
+
+<!-- Window switching buttons -->
+<!-- 
+Note that you can also use "guid:avs" or "guid:pl", however, you can also use the 
+guid for the component itself for toggling parameters. For example.
+Media library : guid:{6B0EDF80-C9A5-11d3-9F26-00C04F39FFC6}
+Playlist Editor : guid:{45f3f7c1-a6f3-4ee6-a15e-125e92fc3f8d}
+-->
+<button
+  id="eq"
+  action="TOGGLE" param="eq"
+  x="128" y="30"
+  image="eq"
+  downImage="eq.enabled"
+  activeImage="eq.enabled"
+  tooltip="Equalizer"
+  rectrgn="1"
+/>
+<button
+  id="Thinger"
+  action="TOGGLE" param="thinger"
+  x="140" y="30"
+  image="th"
+  downImage="th.enabled"
+  activeImage="th.enabled"
+  tooltip="Toggle Thinger"
+  rectrgn="1"
+/>
+<button
+  id="pl"
+  action="TOGGLE" param="guid:pl"
+  x="152" y="30"
+  image="pl"
+  downImage="pl.enabled"
+  activeImage="pl.enabled"
+  tooltip="Playlist Editor"
+  rectrgn="1"
+/>
+
+
+<!-- Timer -->
+<text
+  id="timer"
+  display="time"
+  x="25" y="14"
+  w="40" h="15"
+  font="arial" fontsize="14" align="right" color="50,63,110"
+  timecolonwidth="7"
+/>
+
+<!-- Song Name Ticker -->
+<text
+  id="songticker" ticker="1"
+  display="songname" default="" showlen="1"
+  x="40" y="5"
+  w="106" h="12"
+  font="arial" fontsize="12" color="50,63,110"
+/>
+
+
+<!-- Playback Status -->
+<status
+  id="status"
+  x="32" y="7"
+  w="8" h="8"
+  stopBitmap="status.stop"
+  playBitmap="status.play"
+  pauseBitmap="status.pause"
+/>
+
+<!-- Sound Analyzer -->
+    <vis
+      id="vis"
+      x="74" y="15"
+      w="72" h="14"
+      colorband1="53,64,107"
+      colorband2="53,64,107"
+      colorband3="53,64,107"
+      colorband4="53,64,107"
+      colorband5="53,64,107"
+      colorband6="53,64,107"
+      colorband7="53,64,107"
+      colorband8="53,64,107"
+      colorband9="53,64,107"
+      colorband10="53,64,107"
+      colorband11="53,64,107"
+      colorband12="53,64,107"
+      colorband13="53,64,107"
+      colorband14="53,64,107"
+      colorband15="53,64,107"
+      colorband16="53,64,107"
+      colorbandpeak="26,32,54"
+      colorosc1="53,64,107"
+      colorosc2="53,64,107"
+      colorosc3="53,64,107"
+      colorosc4="53,64,107"
+      colorosc5="53,64,107"
+
+      />
+
+   <Layer
+    id="seekbg"
+    x="32"
+    y="27"
+    image="player.seek.bg"
+   /> 
+
+   <layer x="32" y="27" id="seekaniminfo" image="player.anim.seek" move="0" ghost="1"/>
+
+   <AnimatedLayer 
+      x="32" y="27" 
+      w="30" h="2"
+      id="SeekAnim" 
+      image="player.anim.seek" 
+      move="0"
+      autoplay="0"
+      autoreplay="0"
+   />
+
+<!-- Titlebar buttons -->
+<button
+  id="sysbutton"
+  action="SYSMENU"
+  x="26" y="8"
+  image="sysmenu"
+  downImage="sysmenu.pressed"
+  tooltip="Open Winamp Main Menu"
+  rectrgn="1"
+/>
+
+
+<button
+  id="CONTROLMENU"
+  action="CONTROLMENU"
+  x="20" y="8"
+  image="menu"
+  downImage="menu.pressed"
+  tooltip="Configuration"
+  rectrgn="1"
+/>
+
+
+<button
+  id="Minimize"
+  action="MINIMIZE"
+  x="148" y="8"
+  image="minimize"
+  downImage="minimize.pressed"
+  tooltip="Minimize Winamp"
+  rectrgn="1"
+/>
+
+<button
+  id="winshade"
+  action="SWITCH" param="shade"
+  x="160" y="17"
+  image="shade"
+  downImage="shade.pressed"
+  tooltip="Toggle Windowshade Mode"
+  rectrgn="1"
+/>
+
+<button
+  id="Close"
+  action="CLOSE"
+  x="155" y="8"
+  image="close"
+  downImage="close.pressed"
+  tooltip="Exit Winamp"
+  rectrgn="1"
+/>
+</layout>

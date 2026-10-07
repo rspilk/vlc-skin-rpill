@@ -1,0 +1,16 @@
+# build output (builds/ is committed on purpose: prebuilt downloads)
+build/
+dist/
+testmedia/
+__pycache__/
+*.pyc
+
+# AI assistant / editor / OS files: never publish
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store

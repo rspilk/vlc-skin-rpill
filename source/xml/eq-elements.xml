@@ -1,0 +1,30 @@
+   <elements>
+
+   <bitmap id="player.lcd" file="player/lcd.png" gammagroup="Display Backgrounds"/>
+
+   <bitmap id="eq.bg" file="player/background.png"/>
+   <bitmap id="eq.bg.alpha" file="player/alphabackground.png"/>
+
+   <bitmap id="bb" file="eq/eq-elements.png" x="22" y="14" w="7" h="12" gammagroup="Buttons"/>
+
+   <bitmap id="eq.band" file="eq/eq-elements.png" x="50" y="24" w="2" h="1" gammagroup="Sliders"/>
+   <bitmap id="eq.band.layer" file="eq/eq-elements.png" x="50" y="0" w="2" h="22" gammagroup="Slider Backgrounds"/>
+
+   <bitmap id="eq.plus" file="eq/eq-elements.png" x="44" y="0" w="3" h="3" gammagroup="Sliders"/>
+   <bitmap id="eq.minus" file="eq/eq-elements.png" x="44" y="22" w="3" h="1" gammagroup="Sliders"/>
+   <bitmap id="eq.middle" file="eq/eq-elements.png" x="44" y="11" w="3" h="1" gammagroup="Slider Backgrounds"/>
+
+   <bitmap id="eq.20" file="eq/eq-elements.png" x="36" y="0" w="7" h="5" gammagroup="Sliders"/>
+   <bitmap id="eq.0" file="eq/eq-elements.png" x="36" y="10" w="7" h="5" gammagroup="Slider Backgrounds"/>
+
+   <bitmap id="eq.on" file="eq/eq-elements.png" x="0" y="12" w="9" h="5" gammagroup="Buttons"/>
+   <bitmap id="eq.on.enabled" file="eq/eq-elements.png" x="0" y="18" w="9" h="5" gammagroup="Buttons"/>
+
+   <bitmap id="eq.presets" file="eq/eq-elements.png" x="0" y="0" w="33" h="5" gammagroup="Buttons"/>
+   <bitmap id="eq.presets.pressed" file="eq/eq-elements.png" x="0" y="6" w="33" h="5" gammagroup="Buttons"/>
+
+   <bitmap id="eq.auto" file="eq/eq-elements.png" x="0" y="24" w="18" h="5" gammagroup="Buttons"/>
+   <bitmap id="eq.auto.enabled" file="eq/eq-elements.png" x="0" y="30" w="18" h="5" gammagroup="Buttons"/>
+
+
+   </elements>

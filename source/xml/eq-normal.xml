@@ -1,0 +1,418 @@
+<!-- Equalizer:Standard Mode -->
+  <groupdef id="eqplusminus">
+   <Layer
+    id="plus"
+    x="0"
+    y="0"
+    image="eq.plus"
+   />
+
+
+   <Layer
+    id="middle"
+    x="0"
+    y="11"
+    image="eq.middle"
+   />
+
+
+   <Layer
+    id="minus"
+    x="0"
+    y="21"
+    image="eq.minus"
+   />	
+
+  </groupdef>
+
+  <groupdef id="eqscale">
+   <Layer
+    id="top20"
+    x="0"
+    y="0"
+    image="eq.20"
+   />
+
+
+   <Layer
+    id="zero"
+    x="0"
+    y="10"
+    image="eq.0"
+   />
+
+
+   <Layer
+    id="b20"
+    x="0"
+    y="21"
+    image="eq.20"
+   />
+
+  </groupdef>
+
+
+
+
+   <layout id="normal" background="eq.bg" alphabackground="eq.bg.alpha">
+   <layer id="lcd" image="player.lcd" x="4" y="4"/>
+   <layer id="clearlayer" image="player.clearlayer"/>
+
+   <!-- Titlebar -->
+    <button 
+      id="CONTROLMENU"
+      action="CONTROLMENU"
+      x="20" y="8" 
+      image="menu" 
+      downImage="menu.pressed"
+      rectrgn="1"
+      tooltip="Menu"
+    />
+
+    <button 
+      id="Close"
+      action="CLOSE" 
+      x="155" y="8" 
+      image="close" 
+      downImage="close.pressed"
+      rectrgn="1"
+      tooltip="Close"
+    />
+
+  // background layers
+
+   <button
+    id="menuOpacity"
+    x="14"
+    y="18"
+    image="bb"
+    rectrgn="1"
+   /> 
+   
+   <group id="eqplusminus" x="29" y="11"/>
+
+   <group id="eqplusminus" x="49" y="11"/>
+
+   <group id="eqplusminus" x="112" y="11"/>
+
+   <group id="eqscale" x="39" y="10"/>
+
+
+   <Layer
+    id="blahpre"
+    x="34"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+
+   <Layer
+    id="blah1"
+    x="54"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+
+   <Layer
+    id="blah2"
+    x="60"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+
+   <Layer
+    id="blah3"
+    x="66"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+   <Layer
+    id="blah4"
+    x="72"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+   <Layer
+    id="blah5"
+    x="78"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+   <Layer
+    id="blah6"
+    x="84"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+   <Layer
+    id="blah7"
+    x="90"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+   <Layer
+    id="blah8"
+    x="96"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+   <Layer
+    id="blah9"
+    x="102"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+   <Layer
+    id="blah10"
+    x="108"
+    y="12"
+    w="2"
+    h="22"
+    image="eq.band.layer"
+   /> 
+
+<!-- Cover layers for uneven bars due to float to int convertion in script -->
+
+   <Layer
+    id="barcover1"
+    x="54"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover2"
+    x="60"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover3"
+    x="66"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover4"
+    x="72"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover5"
+    x="78"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover6"
+    x="84"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover7"
+    x="90"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover8"
+    x="96"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover9"
+    x="102"
+    y="33"
+    image="eq.band"
+   />
+
+   <Layer
+    id="barcover10"
+    x="108"
+    y="33"
+    image="eq.band"
+   />
+
+ //script layer sliders
+   <Layer
+    id="eqpreamp"
+    x="34"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqpreampsurface"
+    x="33"
+    y="23"
+    w="4"
+    h="22"
+    move="0"
+   />
+
+
+
+
+   <Layer
+    id="eqband1"
+    x="54"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband2"
+    x="60"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband3"
+    x="66"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband4"
+    x="72"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband5"
+    x="78"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband6"
+    x="84"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband7"
+    x="90"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband8"
+    x="96"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband9"
+    x="102"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+   <Layer
+    id="eqband10"
+    x="108"
+    y="23"
+    w="2"
+    h="11"
+    image="eq.band"
+   />
+
+
+
+    <eqvis id="spline" x="54" y="11" w="56" h="23"
+           colortop="179,188,221" colormiddle="179,188,221" colorbottom="179,188,221"
+           colorpreamp="206,212,234" gamma="192"/>
+
+
+
+     <!-- the different eq switchess -->
+
+    <button
+      id="on"
+      action="EQ_TOGGLE"
+      x="132" y="10"
+      image="eq.on"
+      downImage="eq.on.enabled"
+      activeImage="eq.on.enabled"
+      rectrgn="1"
+      tooltip="Toggle EQ processing"
+    />
+    <button
+      id="auto"
+      action="EQ_AUTO"
+      x="128" y="20"
+      image="eq.auto"
+      downImage="eq.auto.enabled"
+      activeImage="eq.auto.enabled"
+      rectrgn="1"
+      tooltip="Toggle EQ automatic processing"
+    />
+    <button
+      id="presets"
+      action="MENU" param="presets"
+      x="122" y="30"
+      image="eq.presets"
+      downImage="eq.presets.pressed"
+      rectrgn="1"
+      tooltip="Display Presets menu"
+    />
+
+
+   </layout>

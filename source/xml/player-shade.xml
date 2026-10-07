@@ -1,0 +1,219 @@
+<!-- That's the drawer group definition, you can put whatever you want in it -->
+<groupdef id="drawer" background="player.drawer">
+
+  <layer id="volbg" image="player.seek.bg" x="56" y="10" move="0" ghost="1"/>
+  <layer id="volume" image="player.volume-mold-shade" move="0"/>
+  <layer id="volumefull" image="player.volume-shade" move="0" ghost="1"/>
+
+  <button 
+      id="Previous"
+      action="PREV" 
+      x="0" y="1" 
+      image="previous" 
+      downImage="previous.pressed"
+      rectrgn="1"
+      tooltip="Previous"
+    />
+
+    <button 
+      id="Play"
+      action="PLAY" 
+      x="8" y="1"
+      image="play" 
+      downImage="play.pressed"
+      rectrgn="1"
+      tooltip="Play"
+    />
+
+    <button 
+      id="Pause"
+      action="PAUSE" 
+      x="16" y="1" 
+      image="pause" 
+      downImage="pause.pressed"
+      rectrgn="1"
+      tooltip="Pause"
+    />
+
+    <button 
+      id="Stop"
+      action="STOP" 
+      x="24" y="1" 
+      image="stop" 
+      downImage="stop.pressed"
+      rectrgn="1"
+      tooltip="Stop"
+    />
+
+    <button 
+      id="Next"
+      action="NEXT" 
+      x="32" y="1" 
+      image="next" 
+      downImage="next.pressed"
+      rectrgn="1"
+      tooltip="Next"
+    />
+
+    <button 
+      id="Eject"
+      action="EJECT" 
+      x="44" y="1" 
+      image="eject" 
+      downImage="eject.pressed"
+      rectrgn="1"
+      tooltip="Eject"
+    />
+
+    <!-- Toggles -->
+    <togglebutton
+      id="Crossfadeshade"
+      x="56" y="1"
+      image="crossfade"
+      downImage="crossfade.enabled"
+      activeImage="crossfade.enabled"
+      rectrgn="1"
+      tooltip="Crossfade"
+    />
+    <togglebutton
+      id="Repeatshade"
+      x="68" y="1"
+      image="repeat"
+      downImage="repeat.enabled"
+      activeImage="repeat.enabled"
+      rectrgn="1"
+      tooltip="Repeat"
+    />
+    <togglebutton
+      id="Shuffleshade"
+      x="80" y="1"
+      image="shuffle"
+      downImage="shuffle.enabled"
+      activeImage="shuffle.enabled"
+      rectrgn="1"
+      tooltip="Shuffle"
+    />
+
+  <layer id="seekbg" image="player.seek.bg" x="4" y="10" move="0" ghost="1"/>
+
+  <layer x="4" y="10" id="seekaniminfo" image="player.anim.seek" move="0" ghost="1"/>
+
+   <AnimatedLayer 
+      x="4" y="10" 
+      w="30" h="2"
+      id="SeekAnim" 
+      image="player.anim.seek" 
+      move="0"
+      autoplay="0"
+      autoreplay="0"
+   />
+
+
+</groupdef>
+
+   <layout id="shade" background="shade.bg" alphabackground="shade.bg.alpha">
+
+   <layer id="lcd" image="player.shadelcd" x="2" y="2"/>
+   <layer id="clearlayer" image="player.clearlayer.shade"/>
+
+
+
+    <!-- Timer -->
+    <text
+      id="timer"
+      display="time"
+      x="12" y="2"
+      w="40" h="14"
+      font="arial" fontsize="14" align="right" color="50,63,110"
+	  timecolonwidth="7"
+    />
+
+  <!-- Song ticker -->
+    <text
+      id="songticker" ticker="1"
+      display="songname" default="" showlen="1" 
+      x="52" y="3"
+      w="90" h="12"
+      font="arial" fontsize="12" color="50,63,110"
+    />
+
+
+    <button 
+      id="minimize"
+      action="MINIMIZE" 
+      x="145" y="4"
+      image="minimize" 
+      downImage="minimize.pressed"
+      rectrgn="1"
+      tooltip="Minimize"
+    />
+
+    <button 
+      id="CONTROLMENU"
+      action="CONTROLMENU" 
+      x="6" y="4"
+      image="menu" 
+      downImage="menu.pressed"
+      rectrgn="1"
+      tooltip="Control Menu"
+    />
+
+    <button 
+      id="sysmenu"
+      action="SYSMENU" 
+      x="12" y="4"
+      image="sysmenu" 
+      downImage="sysmenu.pressed"
+      tooltip="Open Winamp Main Menu"
+      rectrgn="1"
+    />
+
+
+    <button 
+      id="Close"
+      action="CLOSE"
+      x="152" y="4" 
+      image="close" 
+      downImage="close.pressed"
+      rectrgn="1"
+      tooltip="Close"
+    />
+
+
+    <!-- Winshade -->
+    <button
+      id="winshade" tooltip="Toggle Windowshade mode"
+      action="SWITCH" param="normal"
+      x="162" y="6"
+      w="7" h="7" 
+      image="unshade"
+      downImage="unshade.pressed"
+      rectrgn="1"
+    />
+
+    <!-- drawer button -->
+    <layer id="togglebackground" image="drawer.togglebg" x="147" y="11"/>
+
+    <togglebutton
+      id="drawerbutton" tooltip="Toggle Drawer"
+      x="146" y="11"
+      image="drawer.down"
+      downImage="drawer.up"
+      activeImage="drawer.up"
+      rectrgn="1"
+    />
+
+
+  <!-- drawer -->
+  <group id="drawer" x="52" y="20" w="90" h="12" move="0"/>
+
+  <layer id="hidedrawer" image="player.drawer-cover" x="49" y="15" move="0" ghost="1"/>
+
+
+
+
+   </layout>
+
+
+
+

@@ -1,0 +1,160 @@
+<include file="video-elements.xml" />
+
+  <container id="Video" name="Video" component="guid:{F0816D7B-FFFC-4343-80F2-E8199AA15CC3}" default_visible="0">
+
+   <groupdef id="video.content.group">
+
+    <group id="wasabi.window" 
+     x="0" y="0" w="0" h="-45" relatw="1" relath="1"
+    />
+   
+    <component
+      id="video.component"
+      x="0"
+      y="0"
+      w="0"
+      relatw="1"
+      h="-45"
+      relath="1"
+      param="guid:{F0816D7B-FFFC-4343-80F2-E8199AA15CC3}"
+      disableanimatedrects="1"
+    />
+
+
+    
+    <group id="wasabi.panel" 
+     x="0" y="-45" w="0" h="45" relaty="1" relatw="1"
+    />   
+    
+
+    
+    <button 
+      id="Previous"
+      action="PREV" 
+      x="5" y="-20" relaty="1" 
+      image="previous.video" 
+      downImage="previous.pressed.video" 
+      tooltip="Previous"
+    />
+    <button
+      id="Play"
+      action="PLAY"
+      x="28" y="-20" relaty="1"
+      image="play.video"
+      downImage="play.pressed.video"
+      tooltip="Play"
+    />
+    <button
+      id="Pause"
+      action="PAUSE"
+      x="51" y="-20" relaty="1"
+      image="pause.video"
+      downImage="pause.pressed.video"
+      tooltip="Pause"
+    />
+    <button
+      id="Stop"
+      action="STOP"
+      x="74" y="-20" relaty="1"
+      image="stop.video"
+      downImage="stop.pressed.video"
+      tooltip="Stop"
+    />
+    <button
+      id="Next"
+      action="NEXT"
+      x="97" y="-20" relaty="1"
+      image="next.video"
+      downImage="next.pressed.video"
+      tooltip="Next"
+    />
+    <button
+      id="Eject"
+      action="EJECT"
+      x="126" y="-20" relaty="1"
+      image="eject.video"
+      downImage="eject.pressed.video"
+      tooltip="Eject"
+    /> 
+    <group id="video.visualization"
+      x="-165"  y="-25"
+      w="76" h="20"      
+      relatx="1" relaty="1"
+    />
+    
+    <layer
+      id="volume.slider.bar"
+      x="-83" relatx="1" y="-19" relaty="1"
+      image="wasabi.slider.horizontal.left"
+    />
+    <layer
+      id="seekbar.slider.bar"
+      x="-75" y="-19" relatx="1" relaty="1" w="63"
+      image="wasabi.slider.horizontal.middle"
+    />
+    <layer
+      id="seekbar.slider.bar"
+      x="-12" relatx="1" y="-19" relaty="1"
+      image="wasabi.slider.horizontal.right"
+    />
+    
+    <slider
+      id="Volume"
+      action="VOLUME"
+      x="-84" relatx="1" y="-20" relaty="1"
+      w="80" h="13"
+      thumb="wasabi.slider.horizontal.button"
+      downThumb="wasabi.slider.horizontal.button.pressed"
+    />
+    
+    <layer
+      id="seekbar.slider.bar"
+      x="6" y="-38" relaty="1"
+      image="wasabi.slider.horizontal.left"
+    />
+    <layer
+      id="seekbar.slider.bar"
+      x="14" y="-38" relaty="1" w="-26" relatw="1"
+      image="wasabi.slider.horizontal.middle"
+    />
+    <layer
+      id="seekbar.slider.bar"
+      x="-12" relatx="1" y="-38" relaty="1"
+      image="wasabi.slider.horizontal.right"
+    />
+    
+    <slider
+      id="Seeker"
+      action="SEEK"
+      x="4" y="-39" relaty="1"
+      w="-9" relatw="1" h="13"
+      thumb="wasabi.slider.horizontal.button"
+      downThumb="wasabi.slider.horizontal.button.pressed"
+    />
+    
+    <slider
+      id="SeekerGhost"
+      action="SEEK"
+      x="4" y="-39" relaty="1"
+      w="-9" relatw="1" h="13"
+      thumb="wasabi.slider.horizontal.button"
+      downThumb="wasabi.slider.horizontal.button.pressed"
+    />
+
+   </groupdef>
+
+   <!-- Our actual layout, composed of a standard frame with some content (see above) -->
+
+   <layout id="normal" background="component.basetexture" desktopalpha="0" minimum_h="232" minimum_w="275" default_x="320" default_y="240" linkwidth="shade">
+
+     <!-- the notify tells the standardframe to put this group inside its client area -->
+     <group id="wasabi.standardframe.statusbar" 
+      x="0" y="0" w="0" h="0" relatw="1" relath="1" 
+      notify="content,video.content.group" 
+     />
+     
+   </layout>
+
+
+  </container>
+  <script id="hide" file="scripts/hide.maki"/>

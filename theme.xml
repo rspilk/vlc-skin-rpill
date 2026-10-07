@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Theme PUBLIC "-//VideoLAN//DTD VLC Skins V2.0//EN" "skin.dtd">
+<!-- Apill, a Winamp 3 skin (c) 2001-2002 Brian Bryce (drwho9437), ported to VLC.
+     See CREDITS.txt. Coordinates are copied from the
+     Winamp 3 skin's XML. Placeholders in braces and all images come from build.py. -->
+<Theme version="2.0" magnet="10" alpha="255" movealpha="255">
+  <ThemeInfo name="Apill ({PRESET})" author="Brian Bryce (drwho9437), original Winamp 3 skin; VLC port by rspilk"
+             webpage="https://github.com/rspilk/vlc-skin-rpill"/>
+
+  <!-- Arial, aliased, at Winamp's 9 px (fontsize 12) and 11 px (fontsize 14) -->
+  <Font id="f9" file="apill9.ttf" size="{FONT9}"/>
+  <Font id="f11" file="apill11.ttf" size="{FONT11}"/>
+
+  <Bitmap id="blank" file="blank.png" alphacolor="#FF00FF"/>
+  <Bitmap id="main_bg" file="main_bg.png" alphacolor="#FF00FF"/>
+  <Bitmap id="shade_bg" file="shade_bg.png" alphacolor="#FF00FF"/>
+  <Bitmap id="drawer_bg" file="drawer_bg.png" alphacolor="#FF00FF"/>
+  <Bitmap id="volume" file="volume.png" alphacolor="#FF00FF"/>
+  <Bitmap id="drawer_volume" file="drawer_volume.png" alphacolor="#FF00FF"/>
+  <Bitmap id="seek" file="seek.png" alphacolor="#FF00FF"/>
+  <Bitmap id="eq_bg" file="eq_bg.png" alphacolor="#FF00FF"/>
+  <Bitmap id="eq_band" file="eq_band.png" alphacolor="#FF00FF"/>
+  <Bitmap id="title_pl" file="title_pl.png" alphacolor="#FF00FF"/>
+  <Bitmap id="title_video" file="title_video.png" alphacolor="#FF00FF"/>
+  <Bitmap id="sb_bg" file="sb_bg.png" alphacolor="#FF00FF"/>
+  <Bitmap id="sb_thumb" file="sb_thumb.png" alphacolor="#FF00FF"/>
+  <Bitmap id="sb_thumb_d" file="sb_thumb_d.png" alphacolor="#FF00FF"/>
+  <Bitmap id="sb_up" file="sb_up.png" alphacolor="#FF00FF"/>
+  <Bitmap id="sb_down" file="sb_down.png" alphacolor="#FF00FF"/>
+  <Bitmap id="vpanel_l" file="vpanel_l.png" alphacolor="#FF00FF"/>
+  <Bitmap id="vpanel_m" file="vpanel_m.png" alphacolor="#FF00FF"/>
+  <Bitmap id="vpanel_r" file="vpanel_r.png" alphacolor="#FF00FF"/>
+  <Bitmap id="vthumb" file="vthumb.png" alphacolor="#FF00FF"/>
+  <Bitmap id="vthumb_d" file="vthumb_d.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_tl" file="frame_tl.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_tm" file="frame_tm.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_tr" file="frame_tr.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_ml" file="frame_ml.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_mm" file="frame_mm.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_mr" file="frame_mr.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_bl" file="frame_bl.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_bm" file="frame_bm.png" alphacolor="#FF00FF"/>
+  <Bitmap id="frame_br" file="frame_br.png" alphacolor="#FF00FF"/>
+
+  <Bitmap id="btn" file="buttons.png" alphacolor="#FF00FF">
+    <SubBitmap id="prev" x="0" y="16" width="8" height="8"/>
+    <SubBitmap id="prev.d" x="0" y="24" width="8" height="8"/>
+    <SubBitmap id="play" x="8" y="16" width="8" height="8"/>
+    <SubBitmap id="play.d" x="8" y="24" width="8" height="8"/>
+    <SubBitmap id="pause" x="16" y="16" width="8" height="8"/>
+    <SubBitmap id="pause.d" x="16" y="24" width="8" height="8"/>
+    <SubBitmap id="stop" x="24" y="16" width="8" height="8"/>
+    <SubBitmap id="stop.d" x="24" y="24" width="8" height="8"/>
+    <SubBitmap id="next" x="32" y="16" width="8" height="8"/>
+    <SubBitmap id="next.d" x="32" y="24" width="8" height="8"/>
+    <SubBitmap id="eject" x="40" y="16" width="8" height="8"/>
+    <SubBitmap id="eject.d" x="40" y="24" width="8" height="8"/>
+    <SubBitmap id="close" x="0" y="0" width="5" height="5"/>
+    <SubBitmap id="close.d" x="0" y="8" width="5" height="5"/>
+    <SubBitmap id="sysmenu" x="8" y="0" width="6" height="5"/>
+    <SubBitmap id="sysmenu.d" x="8" y="8" width="6" height="5"/>
+    <SubBitmap id="minimize" x="16" y="0" width="5" height="5"/>
+    <SubBitmap id="minimize.d" x="16" y="8" width="5" height="5"/>
+    <SubBitmap id="menu" x="24" y="0" width="5" height="5"/>
+    <SubBitmap id="menu.d" x="24" y="8" width="5" height="5"/>
+    <SubBitmap id="b.eq" x="32" y="0" width="8" height="8"/>
+    <SubBitmap id="b.eq.on" x="32" y="8" width="8" height="8"/>
+    <SubBitmap id="pl" x="40" y="0" width="7" height="8"/>
+    <SubBitmap id="pl.on" x="40" y="8" width="7" height="8"/>
+    <SubBitmap id="th" x="48" y="0" width="8" height="8"/>
+    <SubBitmap id="th.on" x="48" y="8" width="8" height="8"/>
+    <SubBitmap id="xfade" x="64" y="0" width="8" height="8"/>
+    <SubBitmap id="xfade.on" x="64" y="8" width="8" height="8"/>
+    <SubBitmap id="shuffle" x="64" y="16" width="9" height="8"/>
+    <SubBitmap id="shuffle.on" x="64" y="24" width="9" height="8"/>
+    <SubBitmap id="repeat" x="64" y="32" width="9" height="8"/>
+    <SubBitmap id="repeat.on" x="64" y="40" width="9" height="8"/>
+    <SubBitmap id="b.shade" x="0" y="40" width="9" height="9"/>
+    <SubBitmap id="b.shade.d" x="16" y="40" width="9" height="9"/>
+    <SubBitmap id="unshade" x="0" y="32" width="8" height="8"/>
+    <SubBitmap id="unshade.d" x="8" y="32" width="8" height="8"/>
+    <SubBitmap id="drawer.up" x="32" y="32" width="8" height="3"/>
+    <SubBitmap id="drawer.down" x="40" y="32" width="8" height="3"/>
+  </Bitmap>
+  <Bitmap id="status" file="status.png" alphacolor="#FF00FF">
+    <SubBitmap id="st.play" x="0" y="0" width="8" height="8"/>
+    <SubBitmap id="st.pause" x="8" y="0" width="8" height="8"/>
+    <SubBitmap id="st.stop" x="16" y="0" width="8" height="8"/>
+  </Bitmap>
+  <Bitmap id="eqbtn" file="eq_buttons.png" alphacolor="#FF00FF">
+    <SubBitmap id="eq.onoff" x="0" y="0" width="9" height="5"/>
+    <SubBitmap id="eq.onoff.on" x="0" y="6" width="9" height="5"/>
+    <SubBitmap id="eq.presets" x="0" y="12" width="33" height="5"/>
+    <SubBitmap id="eq.presets.d" x="0" y="18" width="33" height="5"/>
+  </Bitmap>
+  <Bitmap id="vbtn" file="video_buttons.png" alphacolor="#FF00FF">
+    <SubBitmap id="vprev" x="0" y="0" width="12" height="12"/>
+    <SubBitmap id="vprev.d" x="0" y="12" width="12" height="12"/>
+    <SubBitmap id="vplay" x="12" y="0" width="12" height="12"/>
+    <SubBitmap id="vplay.d" x="12" y="12" width="12" height="12"/>
+    <SubBitmap id="vpause" x="24" y="0" width="12" height="12"/>
+    <SubBitmap id="vpause.d" x="24" y="12" width="12" height="12"/>
+    <SubBitmap id="vstop" x="36" y="0" width="12" height="12"/>
+    <SubBitmap id="vstop.d" x="36" y="12" width="12" height="12"/>
+    <SubBitmap id="vnext" x="48" y="0" width="12" height="12"/>
+    <SubBitmap id="vnext.d" x="48" y="12" width="12" height="12"/>
+    <SubBitmap id="veject" x="60" y="0" width="12" height="12"/>
+    <SubBitmap id="veject.d" x="60" y="12" width="12" height="12"/>
+  </Bitmap>
+
+  <!-- ============================================================ main -->
+  <Window id="main" x="0" y="0">
+    <!-- windowshade (player-shade.xml) -->
+    <Layout id="shade" width="178" height="18">
+      <Image x="0" y="0" image="shade_bg" action="move"/>
+      <Text x="11" y="3" width="40" font="f11" color="#323F6E" text="$t" alignment="right" scrolling="none"/>
+      <Text x="56" y="3" width="86" font="f9" color="#323F6E" text="$N" scrolling="auto"/>
+      <Button x="6" y="4" up="menu" down="menu.d" action="dialogs.prefs()" tooltiptext="Preferences"/>
+      <Button x="12" y="4" up="sysmenu" down="sysmenu.d" action="dialogs.popup()" tooltiptext="Main Menu"/>
+      <Button x="145" y="4" up="minimize" down="minimize.d" action="vlc.minimize()" tooltiptext="Minimize"/>
+      <Button x="152" y="4" up="close" down="close.d" action="vlc.quit()" tooltiptext="Exit"/>
+      <Button x="162" y="6" up="unshade" down="unshade.d" action="main.setLayout(normal)" tooltiptext="Toggle Windowshade Mode"/>
+      <Button x="146" y="11" up="drawer.down" down="drawer.up" action="main.setLayout(drawer)" tooltiptext="Toggle Drawer"/>
+    </Layout>
+
+    <!-- windowshade with the drawer open: controls replace the ticker -->
+    <Layout id="drawer" width="178" height="18">
+      <Image x="0" y="0" image="drawer_bg" action="move"/>
+      <Text x="11" y="3" width="40" font="f11" color="#323F6E" text="$t" alignment="right" scrolling="none"/>
+      <Button x="52" y="4" up="prev" down="prev.d" action="playlist.previous()" tooltiptext="Previous"/>
+      <Button x="60" y="4" up="play" down="play.d" action="vlc.play()" tooltiptext="Play"/>
+      <Button x="68" y="4" up="pause" down="pause.d" action="vlc.pause()" tooltiptext="Pause"/>
+      <Button x="76" y="4" up="stop" down="stop.d" action="vlc.stop()" tooltiptext="Stop"/>
+      <Button x="84" y="4" up="next" down="next.d" action="playlist.next()" tooltiptext="Next"/>
+      <Button x="96" y="4" up="eject" down="eject.d" action="dialogs.fileSimple()" tooltiptext="Open File"/>
+      <Checkbox x="108" y="4" up1="xfade" down1="xfade.on" up2="xfade.on" down2="xfade"
+                state="playlist.isRepeat" action1="playlist.setRepeat(true)" action2="playlist.setRepeat(false)"
+                tooltiptext1="Repeat One" tooltiptext2="Repeat One"/>
+      <Checkbox x="120" y="4" up1="repeat" down1="repeat.on" up2="repeat.on" down2="repeat"
+                state="playlist.isLoop" action1="playlist.setLoop(true)" action2="playlist.setLoop(false)"
+                tooltiptext1="Repeat Playlist" tooltiptext2="Repeat Playlist"/>
+      <Checkbox x="132" y="4" up1="shuffle" down1="shuffle.on" up2="shuffle.on" down2="shuffle"
+                state="playlist.isRandom" action1="playlist.setRandom(true)" action2="playlist.setRandom(false)"
+                tooltiptext1="Shuffle Playlist" tooltiptext2="Shuffle Playlist"/>
+      <Slider x="56" y="12" up="blank" points="(0,1),(29,1)" thickness="2" value="time" tooltiptext="$T / $D">
+        <SliderBackground image="seek" nbvert="43"/>
+      </Slider>
+      <Slider x="108" y="12" up="blank" points="(0,1),(59,1)" thickness="2" value="volume" tooltiptext="Volume: $V%">
+        <SliderBackground image="drawer_volume" nbvert="{DVOLFRAMES}"/>
+      </Slider>
+      <Button x="6" y="4" up="menu" down="menu.d" action="dialogs.prefs()" tooltiptext="Preferences"/>
+      <Button x="12" y="4" up="sysmenu" down="sysmenu.d" action="dialogs.popup()" tooltiptext="Main Menu"/>
+      <Button x="145" y="4" up="minimize" down="minimize.d" action="vlc.minimize()" tooltiptext="Minimize"/>
+      <Button x="152" y="4" up="close" down="close.d" action="vlc.quit()" tooltiptext="Exit"/>
+      <Button x="162" y="6" up="unshade" down="unshade.d" action="main.setLayout(normal)" tooltiptext="Toggle Windowshade Mode"/>
+      <Button x="146" y="11" up="drawer.up" down="drawer.down" action="main.setLayout(shade)" tooltiptext="Toggle Drawer"/>
+    </Layout>
+    <!-- normal layout last: VLC starts in the last layout declared -->
+    <Layout id="normal" width="180" height="46">
+      <Image x="0" y="0" image="main_bg" action="move"/>
+      <Anchor x="0" y="46" priority="10" range="10"/>
+      <Anchor x="180" y="0" priority="10" range="10"/>
+
+      <!-- crescent volume. It covers the lower half of the track (0-100%);
+           dragging up past the window boosts beyond 100%. -->
+      <Slider x="7" y="8" up="blank" points="(6,27),(6,-28)" thickness="14"
+              value="volume" tooltiptext="Volume: $V%">
+        <SliderBackground image="volume" nbvert="{VOLFRAMES}"/>
+      </Slider>
+
+      <Button x="21" y="30" up="prev" down="prev.d" action="playlist.previous()" tooltiptext="Previous"/>
+      <Button x="30" y="30" up="play" down="play.d" action="vlc.play()" tooltiptext="Play"/>
+      <Button x="39" y="30" up="pause" down="pause.d" action="vlc.pause()" tooltiptext="Pause"/>
+      <Button x="48" y="30" up="stop" down="stop.d" action="vlc.stop()" tooltiptext="Stop"/>
+      <Button x="57" y="30" up="next" down="next.d" action="playlist.next()" tooltiptext="Next"/>
+      <Button x="71" y="30" up="eject" down="eject.d" action="dialogs.fileSimple()" tooltiptext="Open File"/>
+
+      <!-- Winamp's crossfade button: VLC has no crossfade, so it is repeat-one -->
+      <Checkbox x="86" y="30" up1="xfade" down1="xfade.on" up2="xfade.on" down2="xfade"
+                state="playlist.isRepeat" action1="playlist.setRepeat(true)" action2="playlist.setRepeat(false)"
+                tooltiptext1="Repeat One" tooltiptext2="Repeat One"/>
+      <Checkbox x="99" y="30" up1="repeat" down1="repeat.on" up2="repeat.on" down2="repeat"
+                state="playlist.isLoop" action1="playlist.setLoop(true)" action2="playlist.setLoop(false)"
+                tooltiptext1="Repeat Playlist" tooltiptext2="Repeat Playlist"/>
+      <Checkbox x="112" y="30" up1="shuffle" down1="shuffle.on" up2="shuffle.on" down2="shuffle"
+                state="playlist.isRandom" action1="playlist.setRandom(true)" action2="playlist.setRandom(false)"
+                tooltiptext1="Shuffle Playlist" tooltiptext2="Shuffle Playlist"/>
+      <Checkbox x="128" y="30" up1="b.eq" down1="b.eq.on" up2="b.eq.on" down2="b.eq"
+                state="eq.isVisible" action1="eq.show()" action2="eq.hide()"
+                tooltiptext1="Equalizer" tooltiptext2="Equalizer"/>
+      <!-- TH (Winamp's Thinger launcher) toggles the video window -->
+      <Checkbox x="140" y="30" up1="th" down1="th.on" up2="th.on" down2="th"
+                state="video.isVisible" action1="video.show()" action2="video.hide()"
+                tooltiptext1="Video Window" tooltiptext2="Video Window"/>
+      <Checkbox x="152" y="30" up1="pl" down1="pl.on" up2="pl.on" down2="pl"
+                state="playlist.isVisible" action1="playlist.show()" action2="playlist.hide()"
+                tooltiptext1="Playlist Editor" tooltiptext2="Playlist Editor"/>
+
+      <!-- seek bar: 43-frame fill animation driven by playback position -->
+      <Slider x="32" y="27" up="blank" points="(0,1),(29,1)" thickness="3"
+              value="time" tooltiptext="$T / $D">
+        <SliderBackground image="seek" nbvert="43"/>
+      </Slider>
+
+      <Text x="44" y="5" width="102" font="f9" color="#323F6E" text="$N" scrolling="auto"/>
+      <Text x="24" y="15" width="40" font="f11" color="#323F6E" text="$t" alignment="right" scrolling="none"/>
+
+      <!-- playback status -->
+      <Image x="32" y="7" image="st.play" visible="vlc.isPlaying"/>
+      <Image x="32" y="7" image="st.pause" visible="vlc.isPaused"/>
+      <Image x="32" y="7" image="st.stop" visible="not vlc.isPlaying and not vlc.isPaused"/>
+
+      <!-- titlebar buttons -->
+      <Button x="20" y="8" up="menu" down="menu.d" action="dialogs.prefs()" tooltiptext="Preferences"/>
+      <Button x="26" y="8" up="sysmenu" down="sysmenu.d" action="dialogs.popup()" tooltiptext="Main Menu"/>
+      <Button x="148" y="8" up="minimize" down="minimize.d" action="vlc.minimize()" tooltiptext="Minimize"/>
+      <Button x="155" y="8" up="close" down="close.d" action="vlc.quit()" tooltiptext="Exit"/>
+      <Button x="160" y="17" up="b.shade" down="b.shade.d" action="main.setLayout(shade)" tooltiptext="Toggle Windowshade Mode"/>
+    </Layout>
+  </Window>
+
+  <!-- ============================================================ equalizer -->
+  <Window id="eq" x="0" y="46" visible="false">
+    <Layout id="eq_normal" width="180" height="46">
+      <Image x="0" y="0" image="eq_bg" action="move"/>
+      <Anchor x="0" y="0" priority="5" range="10"/>
+      <Anchor x="0" y="46" priority="10" range="10"/>
+{EQ_SLIDERS}
+      <Checkbox x="132" y="10" up1="eq.onoff" up2="eq.onoff.on"
+                state="equalizer.isEnabled" action1="equalizer.enable()" action2="equalizer.disable()"
+                tooltiptext1="Toggle EQ processing" tooltiptext2="Toggle EQ processing"/>
+      <Button x="122" y="30" up="eq.presets" down="eq.presets.d" tooltiptext="Presets"/>
+      <Button x="20" y="8" up="menu" down="menu.d" action="dialogs.popup()" tooltiptext="Menu"/>
+      <Button x="155" y="8" up="close" down="close.d" action="eq.hide()" tooltiptext="Close"/>
+    </Layout>
+  </Window>
+
+  <!-- ============================================================ playlist -->
+  <Window id="playlist" x="180" y="0">
+    <Layout id="pl_normal" width="{PL_W}" height="{PL_H}" minwidth="275" minheight="116">
+{PL_FRAME}
+      <Anchor x="0" y="0" priority="5" range="10"/>
+      <Image x="{PL_SB_X}" y="{PL_SB_BG_Y}" height="{PL_SB_BG_H}" image="sb_bg" resize="mosaic"
+             lefttop="righttop" rightbottom="rightbottom"/>
+      <Image x="{PL_SB_X}" y="22" image="sb_up" lefttop="righttop" rightbottom="righttop"/>
+      <Image x="{PL_SB_X}" y="{PL_SB_DOWN_Y}" image="sb_down" lefttop="rightbottom" rightbottom="rightbottom"/>
+      <Playtree id="playtree" x="15" y="22" width="{PL_TREE_W}" height="{PL_TREE_H}"
+                lefttop="lefttop" rightbottom="rightbottom" font="f9" flat="true"
+                fgcolor="#323F6E" playcolor="#202844" selcolor="#5468B0"
+                bgcolor1="{LISTBG}" bgcolor2="{LISTBG}">
+        <Slider x="{PL_SB_X}" y="{PL_SB_BG_Y}" points="{PL_SB_PTS}" thickness="13"
+                up="sb_thumb" down="sb_thumb_d" lefttop="righttop" rightbottom="rightbottom"/>
+      </Playtree>
+    </Layout>
+  </Window>
+
+  <!-- ============================================================ video -->
+  <Window id="video" x="320" y="240" visible="false">
+    <Layout id="video_normal" width="{VID_W}" height="{VID_H}" minwidth="275" minheight="232">
+{VIDEO_FRAME}
+      <Video x="15" y="22" width="{VID_CW}" height="{VID_VH}" autoresize="false"
+             lefttop="lefttop" rightbottom="rightbottom"/>
+      <Image x="15" y="{VID_PY}" image="vpanel_l" lefttop="leftbottom" rightbottom="leftbottom"/>
+      <Image x="155" y="{VID_PY}" width="{VID_PM_W}" image="vpanel_m" resize="scale"
+             lefttop="leftbottom" rightbottom="rightbottom"/>
+      <Image x="{VID_PR_X}" y="{VID_PY}" image="vpanel_r" lefttop="rightbottom" rightbottom="rightbottom"/>
+      <Button x="20" y="{VID_BTN_Y}" up="vprev" down="vprev.d" action="playlist.previous()" tooltiptext="Previous" lefttop="leftbottom" rightbottom="leftbottom"/>
+      <Button x="43" y="{VID_BTN_Y}" up="vplay" down="vplay.d" action="vlc.play()" tooltiptext="Play" lefttop="leftbottom" rightbottom="leftbottom"/>
+      <Button x="66" y="{VID_BTN_Y}" up="vpause" down="vpause.d" action="vlc.pause()" tooltiptext="Pause" lefttop="leftbottom" rightbottom="leftbottom"/>
+      <Button x="89" y="{VID_BTN_Y}" up="vstop" down="vstop.d" action="vlc.stop()" tooltiptext="Stop" lefttop="leftbottom" rightbottom="leftbottom"/>
+      <Button x="112" y="{VID_BTN_Y}" up="vnext" down="vnext.d" action="playlist.next()" tooltiptext="Next" lefttop="leftbottom" rightbottom="leftbottom"/>
+      <Button x="141" y="{VID_BTN_Y}" up="veject" down="veject.d" action="dialogs.fileSimple()" tooltiptext="Open File" lefttop="leftbottom" rightbottom="leftbottom"/>
+      <Slider x="19" y="{VID_SEEK_Y}" points="{VID_SEEK_PTS}" thickness="13" up="vthumb" down="vthumb_d"
+              value="time" tooltiptext="$T / $D" lefttop="leftbottom" rightbottom="rightbottom"/>
+      <Slider x="{VID_VOL_X}" y="{VID_VOL_Y}" points="(7,6),(137,6)" thickness="13" up="vthumb" down="vthumb_d"
+              value="volume" tooltiptext="Volume: $V%" lefttop="rightbottom" rightbottom="rightbottom"/>
+    </Layout>
+  </Window>
+</Theme>

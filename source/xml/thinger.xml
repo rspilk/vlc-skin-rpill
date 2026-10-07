@@ -1,0 +1,8 @@
+  <include file="thinger-elements.xml"/>
+
+  <container id="thinger" name="Thinger" default_visible="1" default_x="0" default_y="46">
+
+    <include file="thinger-normal.xml"/>
+
+
+  </container>

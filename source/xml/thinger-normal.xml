@@ -1,0 +1,61 @@
+<layout id="normal" background="player.bg" alphabackground="player.bg.alpha" droptarget="pldr">
+<layer id="lcd" image="player.lcd" x="4" y="4"/>
+<layer id="clearlayer" image="player.clearlayer"/>
+
+
+
+    <!-- Titlebar -->
+    <button 
+      id="CONTROLMENU"
+      action="CONTROLMENU" 
+      x="20" y="8" 
+      image="menu" 
+      downImage="menu.pressed"
+      rectrgn="1"
+      tooltip="Menu"
+    />
+
+    <button 
+      id="Close"
+      action="CLOSE" 
+      x="155" y="8" 
+      image="close" 
+      downImage="close.pressed"
+      rectrgn="1"
+      tooltip="Close"
+    />
+    
+    <!--Component Bucket-->
+
+    <button
+      id="ScrollLeft"
+      action="CB_PREV"
+      x="12" y="17"
+      image="thinger.scroll.left"
+      downImage="thinger.scroll.left.pressed"
+      rectrgn="1"
+      tooltip="Scroll Left"
+    />
+    <button
+      id="ScrollRight"
+      action="CB_NEXT"
+      x="158" y="17"
+      image="thinger.scroll.right"
+      downImage="thinger.scroll.right.pressed"
+      rectrgn="1"
+      tooltip="Scroll Right"
+    />
+    <componentbucket
+      id="Component list"
+      x="25" y="6"
+      w="128" h="32"
+    />
+    <text
+      id="cbtext"
+      display="componentbucket"
+      x="21" y="28"
+      w="135" h="12"
+      font="arial" fontsize="12" align="center" color="13,16,27"
+    />
+    <layer id="cbmask" x="25" y="6" image="thinger.mask" ghost="1"/>
+   </layout>

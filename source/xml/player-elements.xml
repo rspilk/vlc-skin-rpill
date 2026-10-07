@@ -1,0 +1,99 @@
+  <elements>
+
+   <bitmap id="player.bg" file="player/background.png" gammagroup="Backgrounds"/>
+   <bitmap id="player.bg.alpha" file="player/alphabackground.png" gammagroup="Backgrounds"/>
+
+   <bitmap id="player.lcd" file="player/lcd.png" gammagroup="Display Backgrounds"/>
+   <bitmap id="player.shadelcd" file="player/winshade-lcd.png" gammagroup="Display Backgrounds"/>
+
+   <bitmap id="shade.bg" file="player/winshade-background.png" gammagroup="Backgrounds"/>
+   <bitmap id="shade.bg.alpha" file="player/alphawinshade-background.png" gammagroup="Backgrounds"/>
+
+
+   <bitmap id="previous" file="player/player-buttons.png" x="0" y="16" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="previous.pressed" file="player/player-buttons.png" x="0" y="24" h="8" w="8" gammagroup="Buttons"/>
+
+   <bitmap id="play" file="player/player-buttons.png" x="8" y="16" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="play.pressed" file="player/player-buttons.png" x="8" y="24" h="8" w="8" gammagroup="Buttons"/>
+
+   <bitmap id="pause" file="player/player-buttons.png" x="16" y="16" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="pause.pressed" file="player/player-buttons.png" x="16" y="24" h="8" w="8" gammagroup="Buttons"/>
+
+   <bitmap id="stop" file="player/player-buttons.png" x="24" y="16" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="stop.pressed" file="player/player-buttons.png" x="24" y="24" h="8" w="8" gammagroup="Buttons"/>
+
+   <bitmap id="next" file="player/player-buttons.png" x="32" y="16" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="next.pressed" file="player/player-buttons.png" x="32" y="24" h="8" w="8" gammagroup="Buttons"/>
+   
+   <bitmap id="eject" file="player/player-buttons.png" x="40" y="16" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="eject.pressed" file="player/player-buttons.png" x="40" y="24" h="8" w="8" gammagroup="Buttons"/>
+
+
+   <bitmap id="close" file="player/player-buttons.png" x="0" y="0" h="5" w="5" gammagroup="Buttons"/>
+   <bitmap id="close.pressed" file="player/player-buttons.png" x="0" y="8" h="5" w="5" gammagroup="Buttons"/>   
+
+   <bitmap id="menu" file="player/player-buttons.png" x="24" y="0" h="5" w="5" gammagroup="Buttons"/>
+   <bitmap id="menu.pressed" file="player/player-buttons.png" x="24" y="8" h="5" w="5" gammagroup="Buttons"/>
+
+   <bitmap id="sysmenu" file="player/player-buttons.png" x="8" y="0" h="5" w="6" gammagroup="Buttons"/>
+   <bitmap id="sysmenu.pressed" file="player/player-buttons.png" x="8" y="8" h="5" w="6" gammagroup="Buttons"/>    
+
+   <bitmap id="minimize" file="player/player-buttons.png" x="16" y="0" h="5" w="5" gammagroup="Buttons"/>
+   <bitmap id="minimize.pressed" file="player/player-buttons.png" x="16" y="8" h="5" w="5" gammagroup="Buttons"/>   
+
+   <bitmap id="status.stop" file="player/player-buttons.png" x="24" y="16" h="8" w="8" gammagroup="Buttons"/>   
+
+   <bitmap id="status.play" file="player/player-buttons.png" x="8" y="16" h="8" w="8" gammagroup="Buttons"/>
+
+   <bitmap id="status.pause" file="player/player-buttons.png" x="16" y="16" h="8" w="8" gammagroup="Buttons"/>
+
+   <bitmap id="shuffle" file="player/player-buttons.png" x="64" y="16" h="8" w="9" gammagroup="Buttons"/>
+   <bitmap id="shuffle.enabled" file="player/player-buttons.png" x="64" y="24" h="8" w="9" gammagroup="Buttons"/>   
+
+   <bitmap id="repeat" file="player/player-buttons.png" x="64" y="32" h="8" w="9" gammagroup="Buttons"/>
+   <bitmap id="repeat.enabled" file="player/player-buttons.png" x="64" y="40" h="8" w="9" gammagroup="Buttons"/>   
+
+   <bitmap id="crossfade" file="player/player-buttons.png" x="64" y="0" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="crossfade.enabled" file="player/player-buttons.png" x="64" y="8" h="8" w="8" gammagroup="Buttons"/>  
+
+   <bitmap id="eq" file="player/player-buttons.png" x="32" y="0" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="eq.enabled" file="player/player-buttons.png" x="32" y="8" h="8" w="8" gammagroup="Buttons"/>   
+
+   <bitmap id="pl" file="player/player-buttons.png" x="40" y="0" h="8" w="7" gammagroup="Buttons"/>
+   <bitmap id="pl.enabled" file="player/player-buttons.png" x="40" y="8" h="8" w="7" gammagroup="Buttons"/>   
+
+   <bitmap id="th" file="player/player-buttons.png" x="48" y="0" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="th.enabled" file="player/player-buttons.png" x="48" y="8" h="8" w="8" gammagroup="Buttons"/>   
+
+   <bitmap id="shade" file="player/player-buttons.png" x="0" y="40" h="9" w="9" gammagroup="Buttons"/>
+   <bitmap id="shade.pressed" file="player/player-buttons.png" x="16" y="40" h="9" w="9" gammagroup="Buttons"/>
+
+   <bitmap id="unshade" file="player/player-buttons.png" x="0" y="32" h="8" w="8" gammagroup="Buttons"/>
+   <bitmap id="unshade.pressed" file="player/player-buttons.png" x="8" y="32" h="8" w="8" gammagroup="Buttons"/>
+
+
+   <bitmap id="drawer.up" file="player/player-buttons.png" x="32" y="32" h="3" w="8" gammagroup="Buttons"/>
+   <bitmap id="drawer.down" file="player/player-buttons.png" x="40" y="32" h="3" w="8" gammagroup="Buttons"/>
+   <bitmap id="drawer.togglebg" file="player/player-buttons.png" x="48" y="32" h="3" w="6" gammagroup="Slider Backgrounds"/>
+
+
+   <bitmap id="player.clearlayer" file="player/clearlayer.png"/>
+   <bitmap id="player.clearlayer.shade" file="player/clearlayer.png" x="0" y="0" w="178" h="18"/>
+  
+   <bitmap id="player.volume" file="player/volume.png" gammagroup="Buttons"/>
+   <bitmap id="player.volume-mold" file="player/volume-mold.png"/>
+   <bitmap id="player.volume-map" file="player/volume-map.png"/>
+
+   <bitmap id="player.volume-shade" file="player/volume-shade.png" gammagroup="Buttons"/>
+   <bitmap id="player.volume-mold-shade" file="player/volume-mold-shade.png"/>
+   <bitmap id="player.volume-map-shade" file="player/volume-map-shade.png"/>
+
+   <bitmap id="player.seek.bg" file="player/seek-layer.png" gammagroup="Slider Backgrounds"/>
+
+   <bitmap id="player.anim.seek" file="player/progress-level.png" gammagroup="Sliders"/>
+   <bitmap id="player.map.seek" file="player/progress-mask.png"/>
+
+   <bitmap id="player.drawer-cover" file="player/cover.png" gammagroup="Backgrounds"/>
+   <bitmap id="player.drawer" file="player/drawer-bg.png" gammagroup="Display Backgrounds"/>
+
+  </elements>

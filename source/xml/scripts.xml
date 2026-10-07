@@ -1,0 +1,9 @@
+  <scripts>
+    <script id="sysfunctions" file="scripts/sysfunc.maki"/>
+    <script id="volume" file="scripts/volume.maki"/>
+    <script id="seek" file="scripts/seek.maki"/>
+    <script id="seek2" file="scripts/seek2.maki"/>
+    <script id="eq" file="scripts/eq.maki"/>
+    <script id="drawer-shadevol" file="scripts/drawer-shadevol.maki"/>
+    <script id="drawer-shadevol" file="scripts/menuopacity.maki"/>
+  </scripts>

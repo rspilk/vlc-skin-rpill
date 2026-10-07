@@ -1,0 +1,17 @@
+  <Elements>
+
+   <bitmap id="thinger.bg" file="player/background.png" gammagroup="Backgrounds"/>
+   <bitmap id="thinger.bg.alpha" file="player/alphabackground.png" gammagroup="Backgrounds"/>
+
+   <bitmap id="thinger.scroll.left" file="thinger/thinger-elements.png" x="8" y="32" h="11" w="6" gammagroup="Buttons"/>
+   <bitmap id="thinger.scroll.left.pressed" file="thinger/thinger-elements.png" x="0" y="32" h="11" w="6" gammagroup="Buttons"/>
+   <bitmap id="thinger.scroll.right" file="thinger/thinger-elements.png" x="16" y="32" h="11" w="6" gammagroup="Buttons"/>
+   <bitmap id="thinger.scroll.right.pressed" file="thinger/thinger-elements.png" x="24" y="32" h="11" w="6" gammagroup="Buttons"/>
+
+x=
+
+
+   <bitmap id="thinger.mask" file="thinger/thinger-elements.png" x="0" y="0" h="32" w="128" gammagroup="Display Backgrounds"/>
+   <bitmap id="player.lcd" file="player/lcd.png" gammagroup="Display Backgrounds"/>
+
+  </Elements>

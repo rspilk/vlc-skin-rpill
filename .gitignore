@@ -14,3 +14,6 @@ CLAUDE.local.md
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# VLC add-on packages: their manifest holds your add-ons site username and email
+vlc-addon/*.vlp

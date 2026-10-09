@@ -3,7 +3,7 @@
     python build.py                 # every color preset, at the default 1.25x
     python build.py Default         # one preset
     python build.py --scale 1 ...   # authentic Winamp size (or 2, 1.5, ...)
-    python build.py --release       # every preset at 1x, 1.25x, 2x into builds/
+    python build.py --release       # every preset at 1x, 1.25x, 1.5x, 2x, 3x, 4x into builds/
 
 Apill's art is grayscale and Winamp tinted it at runtime with "gamma groups".
 VLC can't tint, so each preset gets its own pre-tinted .vlt. All positions are
@@ -21,13 +21,15 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 import pixelfont
+import shapes
+import upscale
 
 ROOT = Path(__file__).parent
 SRC = ROOT / "source"
 BUILD = ROOT / "build"
 DIST = ROOT / "dist"
 RELEASE = ROOT / "builds"  # committed downloads
-RELEASE_SCALES = (1, 1.25, 2)
+RELEASE_SCALES = (1, 1.25, 1.5, 2, 3, 4)
 # Text fonts. Liberation Sans (SIL OFL, metric-compatible with Arial) is the
 # default so published skins contain no Microsoft font data. Arial reproduces
 # Winamp's text pixel for pixel but is for personal builds only.
@@ -71,6 +73,16 @@ VID_W, VID_H = 360, 300
 # VLC's skin engine has no zoom setting, so the scale is baked in at build time.
 DEFAULT_SCALE = 1.25
 SCALE = DEFAULT_SCALE
+# How art is enlarged above 1x:
+#   "hd"       the art is put together K times larger (see work_factor), from
+#              vector redraws of the curved shapes (shapes.py) and pixel-art
+#              upscaling of everything else (upscale.py), then reduced to size.
+#   "nearest"  the finished 1x art has every pixel drawn bigger.
+#   "auto"     hd from 1.5x up. Smaller scales stay nearest, where reducing
+#              would only blur the art.
+DEFAULT_UPSCALE = "auto"
+UPSCALE = DEFAULT_UPSCALE
+K = 1  # work factor: the art is composed at K times 1x (set in build)
 
 
 def S(v):
@@ -91,8 +103,30 @@ def read_presets():
 PRESETS = read_presets()
 
 
+# enlarged pixel for pixel, without smoothing: data (volume levels), and the
+# EQ's tiny glyphs, where 3 px plus signs would come out as diamonds
+NEAREST = {"player/volume-map.png", "eq/eq-elements.png"}
+
+
 def load(rel):
-    return Image.open(SRC / rel).convert("RGBA")
+    """A source image, K times its size."""
+    im = Image.open(SRC / rel).convert("RGBA")
+    if K == 1:
+        return im
+    if rel in shapes.MODELS:
+        return shapes.render(rel, K)
+    if rel in NEAREST:
+        return im.resize((im.width * K, im.height * K), Image.NEAREST)
+    return upscale.epx(im, K)
+
+
+def new(w, h, color=0):
+    return Image.new("RGBA", (w * K, h * K), color)
+
+
+def put(dst, src, x, y):
+    """Composite src onto dst at the 1x position (x, y)."""
+    dst.alpha_composite(src, (x * K, y * K))
 
 
 def tint(im, preset, group):
@@ -112,14 +146,15 @@ def tint_rgb(rgb, preset, group):
 
 
 def crop(im, x, y, w, h):
-    return im.crop((x, y, x + w, y + h))
+    return im.crop((x * K, y * K, (x + w) * K, (y + h) * K))
 
 
 def stretch(dst, piece, x, y, w=None, h=None):
-    w, h = w or piece.width, h or piece.height
+    w = w * K if w else piece.width
+    h = h * K if h else piece.height
     if w <= 0 or h <= 0:
         return
-    dst.alpha_composite(piece.resize((w, h), Image.NEAREST), (x, y))
+    dst.alpha_composite(piece.resize((w, h), Image.NEAREST), (x * K, y * K))
 
 
 def vstack(frames):
@@ -137,15 +172,16 @@ def boosted(frames):
     return frames + [frames[-1]] * n
 
 
-def text_image(text, ttf, ppem, color=NAVY):
-    """Aliased Arial text, as Winamp 3 drew it. Returns (image, ascent)."""
+def text_image(text, ttf, ppem, color=NAVY, smooth=False):
+    """Aliased Arial text, as Winamp 3 drew it (or anti-aliased, if smooth).
+    Returns (image, ascent)."""
     font = ImageFont.truetype(ttf, ppem)
     ascent, descent = font.getmetrics()
-    w = round(font.getlength(text, mode="1"))
-    im = Image.new("1", (w, ascent + descent))
+    w = math.ceil(font.getlength(text)) + 1 if smooth else round(font.getlength(text, mode="1"))
+    im = Image.new("L" if smooth else "1", (w, ascent + descent))
     d = ImageDraw.Draw(im)
-    d.fontmode = "1"
-    d.text((0, ascent), text, font=font, fill=1, anchor="ls")
+    d.fontmode = "L" if smooth else "1"
+    d.text((0, ascent), text, font=font, fill=255 if smooth else 1, anchor="ls")
     out = Image.new("RGBA", (im.width + 4, im.height), color + (0,))
     a = Image.new("L", out.size)
     a.paste(im.convert("L"), (2, 0))  # 2 px clear margins: VLC may tile an edge column
@@ -169,6 +205,7 @@ def clickable(im, where=None):
 
 def crescent_frames(lit, vmap, box):
     """One frame per map level: lit where the volume map is below the level."""
+    box = tuple(v * K for v in box)
     lit = lit.crop(box)
     vmap = np.asarray(vmap.convert("L").crop(box))
     alpha = np.asarray(lit)[..., 3] > 0
@@ -183,12 +220,12 @@ def crescent_frames(lit, vmap, box):
 
 
 def bar_frames(lit, box):
-    """Horizontal bar filling left to right, one frame per pixel."""
-    lit = lit.crop(box)
+    """Horizontal bar filling left to right, one frame per (1x) pixel."""
+    lit = lit.crop(tuple(v * K for v in box))
     frames = []
-    for k in range(lit.width + 1):
+    for k in range(lit.width // K + 1):
         f = Image.new("RGBA", lit.size)
-        f.paste(lit.crop((0, 0, k, lit.height)), (0, 0))
+        f.paste(lit.crop((0, 0, k * K, lit.height)), (0, 0))
         frames.append(clickable(f))
     return frames
 
@@ -200,38 +237,38 @@ def build_main(p, out):
     t = lambda rel, g: tint(load(rel), p, g)
 
     bg = load("player/background.png")
-    bg.alpha_composite(t("player/lcd.png", "Display Backgrounds"), (4, 4))
-    bg.alpha_composite(t("player/seek-layer.png", "Slider Backgrounds"), (32, 27))
+    put(bg, t("player/lcd.png", "Display Backgrounds"), 4, 4)
+    put(bg, t("player/seek-layer.png", "Slider Backgrounds"), 32, 27)
     bg.save(out / "main_bg.png")
 
     # Winamp buttons use rectrgn="1": the whole rectangle is clickable. Image
     # controls (the status icon) need a copy without that, as VLC draws them unblended.
     btn = t("player/player-buttons.png", "Buttons")
     clickable(btn).save(out / "buttons.png")
-    btn.crop((8, 16, 32, 24)).save(out / "status.png")
+    crop(btn, 8, 16, 24, 8).save(out / "status.png")
 
     vol = crescent_frames(t("player/volume.png", "Buttons"),
-                          Image.open(SRC / "player/volume-map.png"), VOL_BOX)
+                          load("player/volume-map.png"), VOL_BOX)
     vol = boosted(vol)
     vstack(vol).save(out / "volume.png")
     clickable(t("player/progress-level.png", "Sliders")).save(out / "seek.png")
 
     # windowshade (player-shade.xml)
     sh = load("player/winshade-background.png")
-    sh.alpha_composite(t("player/winshade-lcd.png", "Display Backgrounds"), (2, 2))
-    sh.alpha_composite(tint(crop(load("player/player-buttons.png"), 48, 32, 6, 3), p,
-                            "Slider Backgrounds"), (147, 11))  # drawer toggle bg
+    put(sh, t("player/winshade-lcd.png", "Display Backgrounds"), 2, 2)
+    put(sh, tint(crop(load("player/player-buttons.png"), 48, 32, 6, 3), p,
+                 "Slider Backgrounds"), 147, 11)  # drawer toggle bg
     sh.save(out / "shade_bg.png")
 
     # the drawer slides up over the ticker; cover.png hides its lower edge
     dr = sh.copy()
-    drawer = Image.new("RGBA", (90, 12))
+    drawer = new(90, 12)
     drawer.alpha_composite(crop(t("player/drawer-bg.png", "Display Backgrounds"), 0, 0, 90, 12))
     seekbg = t("player/seek-layer.png", "Slider Backgrounds")
-    drawer.alpha_composite(seekbg, (4, 10))
-    drawer.alpha_composite(seekbg, (56, 10))
-    dr.alpha_composite(drawer, (52, DRAWER_Y))
-    dr.alpha_composite(load("player/cover.png"), (49, 15))
+    put(drawer, seekbg, 4, 10)
+    put(drawer, seekbg, 56, 10)
+    put(dr, drawer, 52, DRAWER_Y)
+    put(dr, load("player/cover.png"), 49, 15)
     dr.save(out / "drawer_bg.png")
     dvol = boosted(bar_frames(t("player/volume-shade.png", "Buttons"), (56, 10, 86, 12)))
     vstack(dvol).save(out / "drawer_volume.png")
@@ -248,16 +285,16 @@ def build_eq(p, out):
     e = lambda x, y, w, h, g: tint(crop(eq, x, y, w, h), p, g)
 
     bg = load("player/background.png")
-    bg.alpha_composite(tint(load("player/lcd.png"), p, "Display Backgrounds"), (4, 4))
+    put(bg, tint(load("player/lcd.png"), p, "Display Backgrounds"), 4, 4)
     for x in (29, 49, 112):  # eqplusminus groups
-        bg.alpha_composite(e(44, 0, 3, 3, "Sliders"), (x, 11))
-        bg.alpha_composite(e(44, 11, 3, 1, "Slider Backgrounds"), (x, 22))
-        bg.alpha_composite(e(44, 22, 3, 1, "Sliders"), (x, 32))
-    bg.alpha_composite(e(36, 0, 7, 5, "Sliders"), (39, 10))  # eqscale: 20 / 0 / 20
-    bg.alpha_composite(e(36, 10, 7, 5, "Slider Backgrounds"), (39, 20))
-    bg.alpha_composite(e(36, 0, 7, 5, "Sliders"), (39, 31))
-    bg.alpha_composite(e(22, 14, 7, 12, "Buttons"), (14, 18))  # "bb" (opacity menu)
-    bg.alpha_composite(e(0, 24, 18, 5, "Buttons"), (128, 20))  # AUTO (no VLC equivalent)
+        put(bg, e(44, 0, 3, 3, "Sliders"), x, 11)
+        put(bg, e(44, 11, 3, 1, "Slider Backgrounds"), x, 22)
+        put(bg, e(44, 22, 3, 1, "Sliders"), x, 32)
+    put(bg, e(36, 0, 7, 5, "Sliders"), 39, 10)  # eqscale: 20 / 0 / 20
+    put(bg, e(36, 10, 7, 5, "Slider Backgrounds"), 39, 20)
+    put(bg, e(36, 0, 7, 5, "Sliders"), 39, 31)
+    put(bg, e(22, 14, 7, 12, "Buttons"), 14, 18)  # "bb" (opacity menu)
+    put(bg, e(0, 24, 18, 5, "Buttons"), 128, 20)  # AUTO (no VLC equivalent)
     bg.save(out / "eq_bg.png")
 
     # bands fill up from the bottom of a 22 px track; 0 dB is half way
@@ -269,11 +306,11 @@ def build_eq(p, out):
         frames.append(f)
     vstack(frames).save(out / "eq_band.png")
 
-    eqb = Image.new("RGBA", (33, 32))
-    eqb.alpha_composite(e(0, 12, 9, 5, "Buttons"), (0, 0))   # ON
-    eqb.alpha_composite(e(0, 18, 9, 5, "Buttons"), (0, 6))   # ON (enabled)
-    eqb.alpha_composite(e(0, 0, 33, 5, "Buttons"), (0, 12))  # PRESETS
-    eqb.alpha_composite(e(0, 6, 33, 5, "Buttons"), (0, 18))  # PRESETS (pressed)
+    eqb = new(33, 32)
+    put(eqb, e(0, 12, 9, 5, "Buttons"), 0, 0)   # ON
+    put(eqb, e(0, 18, 9, 5, "Buttons"), 0, 6)   # ON (enabled)
+    put(eqb, e(0, 0, 33, 5, "Buttons"), 0, 12)  # PRESETS
+    put(eqb, e(0, 6, 33, 5, "Buttons"), 0, 18)  # PRESETS (pressed)
     clickable(eqb).save(out / "eq_buttons.png")
     return {"EQFRAMES": len(frames)}
 
@@ -306,8 +343,8 @@ def wa3_frame(p, W, H):
     dot128 = disp(load("system/window/128dot.png"))
     dot48 = disp(load("system/window/48dot.png"))
 
-    img = Image.new("RGBA", (W, H), base)
-    mask = Image.new("RGBA", (W, H))
+    img = new(W, H, base)
+    mask = new(W, H)
     Hf = H - 19  # frame.layout group height
 
     stretch(img, dot128, 9, 9, W - 20, Hf - 20)
@@ -321,7 +358,11 @@ def wa3_frame(p, W, H):
     stretch(mask, crop(mask_src, 20, 0, 15, 22), 22, 0, W - 44, 22)
     stretch(mask, crop(mask_src, 33, 0, 22, 22), W - 22, 0)
     stretch(mask, crop(mask_src, 0, 23, 22, 10), 0, 22, 22, Hf - 22)
-    stretch(mask, crop(mask_src, 33, 23, 22, 10), W - 21, 22, 22, Hf - 22)
+    # Winamp's frame XML puts the right and bottom mask edges 1 px out, which
+    # leaves a 1 px strip of frame color outside the outline. 1x keeps that, as
+    # Winamp drew it; high-quality builds line the mask up with the art.
+    out_ = 21 if K == 1 else 22
+    stretch(mask, crop(mask_src, 33, 23, 22, 10), W - out_, 22, 22, Hf - 22)
     stretch(img, dot48, 15, 21, W - 30, 1)
     stretch(img, dot48, 14, 21, 1, Hf - 32)
     stretch(img, dot48, W - 15, 21, 1, Hf - 32)
@@ -331,14 +372,15 @@ def wa3_frame(p, W, H):
         stretch(img, crop(src, 20, 33, 10, 22), 22, H - 22, W - 44, 22)
         stretch(img, crop(src, 33, 33, 22, 22), W - 22, H - 22)
     stretch(mask, crop(mask_src, 0, 33, 22, 22), 0, H - 22)
-    stretch(mask, crop(mask_src, 20, 33, 10, 22), 22, H - 21, W - 44, 22)
+    stretch(mask, crop(mask_src, 20, 33, 10, 22), 22, H - out_, W - 44, 22)
     stretch(mask, crop(mask_src, 33, 33, 22, 22), W - 22, H - 22)
     stretch(img, dot48, 15, H - 15, W - 30, 1)
     stretch(img, dot48, 14, H - 30, 1, 16)
     stretch(img, dot48, W - 15, H - 30, 1, 16)
 
     a = np.asarray(img).copy()
-    a[np.asarray(mask)[..., 3] > 0, 3] = 0
+    m = np.asarray(mask)[..., 3].astype(np.uint32)  # all or nothing at 1x; soft enlarged
+    a[..., 3] = a[..., 3] * (255 - m) // 255
     return Image.fromarray(a, "RGBA")
 
 
@@ -349,12 +391,12 @@ def frame_pieces(p, out):
     a = np.asarray(f)
     # the middle rows are uniform, so stretching them is exact; the top edge has
     # a few faint (alpha < 50) anti-aliasing pixels Winamp smeared when stretching
-    assert (a[FRAME_T:H - FRAME_B] == a[FRAME_T]).all()
+    assert (a[FRAME_T * K:(H - FRAME_B) * K] == a[FRAME_T * K]).all()
     xs = [(0, FRAME_L), (W // 2, W // 2 + 1), (W - FRAME_R, W)]
     ys = [(0, FRAME_T), (FRAME_T, FRAME_T + 1), (H - FRAME_B, H)]
     for r, (y0, y1) in zip("tmb", ys):
         for c, (x0, x1) in zip("lmr", xs):
-            f.crop((x0, y0, x1, y1)).save(out / ("frame_%s%s.png" % (r, c)))
+            crop(f, x0, y0, x1 - x0, y1 - y0).save(out / ("frame_%s%s.png" % (r, c)))
     return f
 
 
@@ -391,11 +433,21 @@ TITLE_ASCENT = 0  # set in build_frames
 
 def build_frames(p, out):
     global TITLE_ASCENT
-    frame_pieces(p, out)
+    frame = frame_pieces(p, out)
     titles = {}
     for key, text in (("title_pl", "Playlist Editor"), ("title_video", "Video")):
         # drawn at the final size (not pixel-scaled) so the text stays crisp
-        if SCALE == int(SCALE):
+        if K > 1:
+            im, asc = text_image(text, FONTS[FONT]["bold"], S(11), smooth=True)
+            # VLC darkens half-transparent pixels, which would outline smooth
+            # text in black: draw it onto the titlebar behind it instead (the
+            # same in every column there) so the image is opaque
+            col = upscale.reduce(crop(frame, FRAME_L, 0, 1, FRAME_T), (1, S(FRAME_T)))
+            y = S(round(17 - asc / SCALE))
+            bg = col.crop((0, y, 1, y + im.height)).resize(im.size, Image.NEAREST)
+            bg.alpha_composite(im)
+            im = bg
+        elif SCALE == int(SCALE):
             im, asc = text_image(text, FONTS[FONT]["bold"], 11)
             im = im.resize((im.width * int(SCALE), im.height * int(SCALE)), Image.NEAREST)
             asc *= int(SCALE)
@@ -408,7 +460,7 @@ def build_frames(p, out):
     we = load("system/window/window-elements.png")
     s = lambda x, y, w, h, g: tint(crop(we, x, y, w, h), p, g)
     # the track is 50% black over the list; VLC tiles it opaque, so pre-blend
-    sb = tint(Image.new("RGBA", (13, 41), (128, 128, 128, 255)), p, "Display Backgrounds")
+    sb = tint(new(13, 41, (128, 128, 128, 255)), p, "Display Backgrounds")
     sb.alpha_composite(s(39, 55, 13, 41, "Scrollbar Backgrounds"))
     sb.save(out / "sb_bg.png")
     s(0, 55, 13, 41, "Scrollbar Buttons").save(out / "sb_thumb.png")
@@ -417,8 +469,8 @@ def build_frames(p, out):
     s(0, 96, 13, 17, "Scrollbar Buttons").save(out / "sb_down.png")
 
     # video window: wasabi.panel border, horizontal sliders, big buttons
-    panel = Image.new("RGBA", (VID_W - 30, 45))
-    pw, ph = panel.size
+    pw, ph = VID_W - 30, 45
+    panel = new(pw, ph)
     stretch(panel, s(19, 114, 2, 2, "Display Backgrounds"), 0, 0)
     stretch(panel, s(21, 114, 16, 2, "Display Backgrounds"), 2, 0, pw - 4, 2)
     stretch(panel, s(37, 114, 2, 2, "Display Backgrounds"), pw - 2, 0)
@@ -436,9 +488,9 @@ def build_frames(p, out):
     stretch(panel, s(115, 149, 10, 8, "Big Slider Backgrounds"), pw - 75, 26, 63, 8)
     stretch(panel, s(126, 149, 8, 8, "Slider Backgrounds"), pw - 12, 26)
     # slice: left part (fixed), stretchable middle column, right part (volume)
-    panel.crop((0, 0, 140, ph)).save(out / "vpanel_l.png")
-    panel.crop((140, 0, 141, ph)).save(out / "vpanel_m.png")
-    panel.crop((pw - 90, 0, pw, ph)).save(out / "vpanel_r.png")
+    crop(panel, 0, 0, 140, ph).save(out / "vpanel_l.png")
+    crop(panel, 140, 0, 1, ph).save(out / "vpanel_m.png")
+    crop(panel, pw - 90, 0, 90, ph).save(out / "vpanel_r.png")
     s(106, 136, 15, 13, "Big Sliders").save(out / "vthumb.png")
     s(121, 136, 15, 13, "Big Sliders").save(out / "vthumb_d.png")
     clickable(tint(load("video/video-elements.png"), p, "Buttons")).save(out / "video_buttons.png")
@@ -457,11 +509,17 @@ def build_fonts(out):
 
     At whole-number scales the 1x pixels are simply drawn bigger. Otherwise
     Arial is rendered natively at the scaled size, which stays crisp where
-    stretching 1x pixels by e.g. 1.25 would make strokes uneven.
+    stretching 1x pixels by e.g. 1.25 would make strokes uneven. High-quality
+    builds (K > 1) use smooth text instead, to match the smooth art.
     Returns the point sizes VLC must use."""
+    f = FONTS[FONT]
+    if K > 1:  # high-quality builds: smooth text, drawn natively at full size
+        pixelfont.smooth(f["regular"], S(9), str(out / "apill9.ttf"), "Apill9", names=f["names"])
+        pixelfont.smooth(f["regular"], S(11), str(out / "apill11.ttf"), "Apill11",
+                         {":": S(7)}, names=f["names"])
+        return {"FONT9": S(9), "FONT11": S(11)}
     k = int(SCALE) if SCALE == int(SCALE) else 1
     ppem9, ppem11 = (9, 11) if k > 1 or SCALE == 1 else (S(9), S(11))
-    f = FONTS[FONT]
     hint = lambda ppem: f["hinting"].get(ppem, "native")
     pixelfont.build(f["regular"], ppem9, str(out / "apill9.ttf"), "Apill9", names=f["names"],
                     hinting=hint(ppem9))
@@ -478,8 +536,19 @@ STRIPS = {"volume.png": "VOLFRAMES", "drawer_volume.png": "DVOLFRAMES",
 NOT_SCALED = {"blank.png", "title_pl.png", "title_video.png"}
 
 
+def work_factor():
+    """K for this build: 1 (draw at 1x, then enlarge pixels), or the size the
+    art is composed at before reducing to SCALE. A whole multiple of SCALE
+    where possible (3 for 1.5x), so the reduction is an even average."""
+    if SCALE == 1 or UPSCALE == "nearest" or (UPSCALE == "auto" and SCALE < 1.5):
+        return 1
+    ks = [k for k in (2, 3, 4, 6, 8, 9, 12) if k >= SCALE - 1e-9]
+    return next((k for k in ks if abs(k / SCALE - round(k / SCALE)) < 1e-9), ks[0])
+
+
 def scale_images(out, vars_):
-    if SCALE == 1:
+    """Bring each image from K times 1x to its final size."""
+    if SCALE == K:
         return
     for f in out.glob("*.png"):
         if f.name in NOT_SCALED:
@@ -488,16 +557,18 @@ def scale_images(out, vars_):
         n = STRIPS.get(f.name, 1)
         n = vars_[n] if isinstance(n, str) else n
         w, h = im.width, im.height // n
-        frames = [im.crop((0, i * h, w, (i + 1) * h)).resize((S(w), S(h)), Image.NEAREST)
-                  for i in range(n)]
-        vstack(frames).save(f)
+        size = (S(w // K), S(h // K))
+        resize = (lambda fr: fr.resize(size, Image.NEAREST)) if K == 1 else \
+            (lambda fr: upscale.reduce(fr, size))
+        vstack([resize(im.crop((0, i * h, w, (i + 1) * h))) for i in range(n)]).save(f)
 
 
 GEOMETRY = ("x", "y", "width", "height", "minwidth", "minheight", "thickness", "range")
 
 
-def scale_xml(xml):
-    """Scale every position and size in the finished theme.xml."""
+def scale_xml(xml, sizes):
+    """Scale every position and size in the finished theme.xml.
+    sizes: the 1x size of each image, by name."""
     if SCALE == 1:
         return xml
 
@@ -513,7 +584,16 @@ def scale_xml(xml):
         for a, o in (("width", "x"), ("height", "y")):  # keep shared edges aligned
             if a in new and o in attrs and not t.startswith("<Layout"):
                 new[a] = S(int(attrs[o]) + int(attrs[a])) - S(int(attrs[o]))
-        if "points" in attrs:
+        up = attrs.get("up")
+        if K > 1 and "points" in attrs and t.startswith("<Slider") and up in sizes and up != "blank":
+            # VLC centres the thumb on the point, rounding down: scale where
+            # its edges go, so it lines up with the art around it (in
+            # high-quality builds; smaller scales keep their old positions)
+            w, h = sizes[up]
+            at = lambda p, d: S(p - d // 2) + S(d) // 2
+            new["points"] = re.sub(r"\((-?\d+),(-?\d+)\)", lambda n: "(%d,%d)" % (
+                at(int(n.group(1)), w), at(int(n.group(2)), h)), attrs["points"])
+        elif "points" in attrs:
             new["points"] = re.sub(r"-?\d+", lambda n: str(S(int(n.group(0)))), attrs["points"])
         for a, v in new.items():
             t = re.sub(r'\b%s="[^"]*"' % a, '%s="%s"' % (a, v), t, count=1)
@@ -567,6 +647,8 @@ FONTS_BUILT = {}
 
 
 def build(preset, dest=None):
+    global K
+    K = work_factor()
     out = BUILD / preset
     shutil.rmtree(out, ignore_errors=True)
     out.mkdir(parents=True)
@@ -577,6 +659,8 @@ def build(preset, dest=None):
     vars_.update(geometry())
     vars_["EQ_SLIDERS"] = eq_sliders_xml()
     Image.new("RGBA", (1, 1)).save(out / "blank.png")
+    sizes = {f.stem: (Image.open(f).width // K, Image.open(f).height // K)
+             for f in out.glob("*.png")}
     scale_images(out, vars_)
 
     # attribution and licenses travel inside every skin. Line endings are
@@ -589,12 +673,12 @@ def build(preset, dest=None):
         lines = src.read_bytes().replace(b"\r\n", b"\n").split(b"\n")
         (out / name).write_bytes(b"\r\n".join(lines))
 
-    fonts = BUILD / ("_fonts-%s@%g" % (FONT, SCALE))
-    if (FONT, SCALE) not in FONTS_BUILT:  # once per run, so pixelfont.py changes always apply
+    fonts = BUILD / ("_fonts-%s@%g%s" % (FONT, SCALE, "-hd" if K > 1 else ""))
+    if (FONT, SCALE, K) not in FONTS_BUILT:  # once per run, so pixelfont.py changes always apply
         shutil.rmtree(fonts, ignore_errors=True)
         fonts.mkdir(parents=True)
-        FONTS_BUILT[FONT, SCALE] = build_fonts(fonts)
-    vars_.update(FONTS_BUILT[FONT, SCALE])
+        FONTS_BUILT[FONT, SCALE, K] = build_fonts(fonts)
+    vars_.update(FONTS_BUILT[FONT, SCALE, K])
     for f in fonts.iterdir():
         shutil.copy(f, out / f.name)
 
@@ -604,7 +688,7 @@ def build(preset, dest=None):
             xml = xml.replace("{%s}" % k, str(v))
     left = re.findall(r"\{[A-Z_]+\}", xml)
     assert not left, left
-    xml = scale_xml(xml)
+    xml = scale_xml(xml, sizes)
     (out / "theme.xml").write_text(xml, encoding="utf-8")
     validate(out / "theme.xml")
 
@@ -632,11 +716,14 @@ if __name__ == "__main__":
                     help="size multiplier (default %(default)s; 1 = original Winamp size)")
     ap.add_argument("--font", choices=sorted(FONTS), default=DEFAULT_FONT,
                     help="text font (default %(default)s; arial is for personal builds only)")
+    ap.add_argument("--upscale", choices=("auto", "hd", "nearest"), default=DEFAULT_UPSCALE,
+                    help="how art is enlarged above 1x (default %(default)s)")
     ap.add_argument("--release", action="store_true",
                     help="build every preset at %s into builds/<scale>x/" % ", ".join(
                         "%gx" % s for s in RELEASE_SCALES))
     args = ap.parse_args()
     FONT = args.font
+    UPSCALE = args.upscale
     if args.release:
         if not args.presets:
             shutil.rmtree(RELEASE, ignore_errors=True)

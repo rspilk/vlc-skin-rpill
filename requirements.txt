@@ -2,3 +2,4 @@ Pillow>=10
 fonttools>=4.40
 freetype-py>=2.4
 lxml>=4.9
+scipy>=1.11  # tools/fit_shapes.py only

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="178" height="45" viewBox="0 0 178 45">
+<!-- Apill (c) 2001-2002 Brian Bryce: vector redraw of source/player/volume.png -->
+<defs>
+<clipPath id="volume-clip"><rect x="0" y="0" width="20" height="45"/></clipPath>
+<mask id="volume-shape"><ellipse cx="19.451" cy="22.139" rx="11.915" ry="12.985" fill="#fff"/><ellipse cx="24.978" cy="24.616" rx="12.008" ry="9.590" fill="#000"/></mask>
+<mask id="volume-body"><ellipse cx="19.451" cy="22.139" rx="11.915" ry="12.985" fill="#fff"/><ellipse cx="24.978" cy="24.616" rx="13.412" ry="10.994" fill="#000"/></mask>
+</defs>
+<g clip-path="url(#volume-clip)">
+<rect width="178" height="45" mask="url(#volume-body)" fill="#4a4a4a" fill-opacity="0.974"/>
+</g>
+</svg>
